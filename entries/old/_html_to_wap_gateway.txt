@@ -1,0 +1,24 @@
+html_to_wap_gateway
+
+Some time ago I wrote a small script which allows to view  normal webpages with the integrated wap browser of mobiles, because my providers has a wap flatrate, but no web flatrate.<br />
+The result is a small php tool which allows to convert arbitrary urls to wap pages.<br />
+You can use it like this: http://w.l4x.org/&lt;url&gt;.<br />
+So, for example <a href="http://w.l4x.org/slashdot.org">http://w.l4x.org/slashdot.org</a>
+<br />This works quite nice, also with pictures, if you've an jpg enabled mobile. For the page with pictures try:<br /><a href="http://w.l4x.org/i&amp;slashdot.org">http://w.l4x.org/i&amp;slashdot.org</a>.
+
+Some time ago I wrote a small script which allows to view  normal webpages with the integrated wap browser of mobiles, because my providers has a wap flatrate, but no web flatrate.<br />
+The result is a small php tool which allows to convert arbitrary urls to wap pages.<br />
+You can use it like this: http://w.l4x.org/&lt;url&gt;.<br />
+So, for example <a href="http://w.l4x.org/slashdot.org">http://w.l4x.org/slashdot.org</a>
+<br />This works quite nice, also with pictures, if you've an jpg enabled mobile. For the page with pictures try:<br /><a href="http://w.l4x.org/i&amp;slashdot.org">http://w.l4x.org/i&amp;slashdot.org</a>.<br />The source will turn up in the files section, when I've got a chance to clean it up a bit.<br />
+<!-- break -->
+Technically the script just retrieves the url given, removes all offending tags and converts links in such a way, that they point back to the script itself. Also, most phones cannot cope with pages bigger than 2000 chars. Therefore, the page is also trimmed in pieces and navigation links are supplied to scan through the page.
+
+<br />
+There are three modes:<ul>
+<li>Plain text (go.php?t&amp;&lt;url&gt;)
+<li>Text with links and some basic attributes (go.php?&lt;url&gt;). This is the default mode.
+<li>Text with links and pictures (go.php?i&amp;&lt;url&gt;)
+</ul>
+You can use the short form, because my apache server does rewrite requests to http://w.l4x.org/ which don't exists to the script 'go.php'.<br />
+It also works with Mozilla, IE &amp; co. because the script detects if your browser is capable of wml.<br />

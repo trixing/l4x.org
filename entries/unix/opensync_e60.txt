@@ -1,0 +1,25 @@
+Opensync_and_Nokia_E60
+
+Working config file for the syncml-obex-client plugin.
+
+    <config>
+    <bluetooth_address>00:11:22:33:44:55</bluetooth_address>
+    <bluetooth_channel>14</bluetooth_channel>
+    <interface>0</interface>
+    <identifier>PC Suite</identifier>
+    <version>1</version>
+    <wbxml>1</wbxml>
+    <username></username>
+    <password></password>
+    <type>2</type>
+    <usestringtable>1</usestringtable>
+    <onlyreplace>0</onlyreplace>
+    <recvLimit>10000</recvLimit>
+    <maxObjSize>0</maxObjSize>
+    <contact_db>Contacts</contact_db>
+    <calendar_db>Calendar</calendar_db>
+    <note_db>Notes</note_db>
+    </config>
+
+See also: <http://www.opensync.org/wiki/syncml-guide>
+

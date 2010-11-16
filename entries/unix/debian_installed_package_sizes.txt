@@ -1,0 +1,7 @@
+Debian: List installed packages by size with dpkg
+
+
+<pre>
+$ dpkg-query -W --showformat='${Installed-Size;10}\t${Package}\n' \
+   | sort -k1,1n | tail -n 20 
+</pre>

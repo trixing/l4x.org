@@ -1,0 +1,96 @@
+Imprint, places I lived
+
+Jan Dittmer<br />
+Rankestrasse 17<br />
+38102 Braunschweig<br />
+jdi@l4x.org<br />
++49 - 531 - 3884123<br />
++49 - 179 - 4570689<br />
+
+<style>li h3 { font-size:1em; font-weight:bold; }</style>
+
+<b>Address history</b><br />
+<table><tr><td>
+<ul id="a" style="float:left;margin-right:2em;"><br />
+	<li><h3>Current address 2006-07-14 - </h3> Rankestrasse 17, 38102 Braunschweig</li>
+	<li><h3>2005-10-01 - 2006-07-14</h3>Gliesmaroder Strasse 75, 38106 Braunschweig</li>
+	<li><h3>2004-09-15 - 2005-09-30</h3>Eichholz 19, 20459 Hamburg</li>
+	<li><h3>2000-10-01 - 2004-09-15</h3>Schuettstrasse 3, 21073 Hamburg</li>
+	<li><h3>1984-10-01 - 2000-09-30</h3>Carl-Goerdeler-Ring 9, 38518 Gifhorn</li>
+	<li><h3>1980-01-04 - 1984-09-30</h3>Gartenweg 1a, 3170 Gifhorn</li>
+</ul>
+</td><td>Click on the addresses to reveal their location.
+	<div id="map" style="width:500px;height:500px;"></div>
+</td></tr></table>
+<!-- blog.l4x.org
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAwwFmuL5AYb6tQK0ciRV2axSPNd9Q-QCSNrQ4zjTcAT0ihgmMFBRf3HCpELhI5pZGUjRAoFA83CC6lQ" 
+ type="text/javascript"></script>
+ -->
+ <!-- l4x.org -->
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA25Krd34sT_FrsSpNAi6AoBRhB64Q9xmpCT_H8OMG6n5CNZvMlxS14d-FhSCOmXkuyde9oiS9G0E7QA" type="text/javascript"></script>
+<script type="text/javascript">
+
+
+function showAddress(address) {
+  geocoder.getLatLng(
+                  address,
+                 function(point) {
+                  if (!point) {
+                  alert(address + " not found");
+                  } else {
+                  map.setCenter(point, 13);
+                  //map.panTo(point);
+                  var marker = new GMarker(point);
+                  map.addOverlay(marker);
+                  marker.openInfoWindowHtml(address);
+                  }
+                  }
+                  );
+                }
+
+function markAddress(address) {
+  geocoder.getLatLng(
+                  address,
+                 function(point) {
+                  if (!point) {
+                  //alert(address + " not found");
+                  } else {
+                  var marker = new GMarker(point);
+                  map.addOverlay(marker);
+                  marker.openInfoWindowHtml(address);
+                  }
+                  }
+                  );
+                }
+
+
+if (document.getElementById("map")) {
+  var map = new GMap2(document.getElementById("map"));
+  map.addControl(new GSmallMapControl());
+  map.addControl(new GMapTypeControl());
+  var geocoder = new GClientGeocoder();
+  var a = document.getElementById('a');
+  var loc = 'Rankestr 17, 38102 Braunschweig';
+  for(i = a.childNodes.length - 1; i >= 0; i--) {
+        var li = a.childNodes[i];
+        if (li.nodeName != 'LI')
+                continue;
+        var t = li.innerHTML.replace(/<br>/g, '');
+        t = t.replace(/<h3(.*?)h3>/g, '');
+        //alert(t);
+        //var l = t.split(/\n/);
+        //var loc = l[2] + ',' + l[3] + ',Germany';
+        loc = t;
+        li.setAttribute('loc', loc);
+        li.onclick = function() { li_click(this); };
+        markAddress(loc);
+  }
+
+  function li_click(li) {
+        var loc = li.getAttribute('loc');
+        showAddress(loc);
+  }
+  loc = 'Rankestr 17, 38102 Braunschweig';
+  showAddress(loc);
+}
+</script>

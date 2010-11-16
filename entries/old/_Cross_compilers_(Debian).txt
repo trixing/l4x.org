@@ -1,0 +1,115 @@
+Cross_compilers_(Debian)
+
+Thanks to the help of Herbert Poetzl, I've now complete buildable cross compiler toolchains (binutils and gcc) for these targets:
+<code>
+alpha arm cris frv h8300 hppa hppa64 i386 ia64 m32r m68k
+mips mipsel mips64 ppc ppc64 s390 s390x sh shbe sh64 sh64be
+sparc sparc64 v850 x86_64
+</code>
+and these tool versions:
+<code>
+binutils-2.15.94.0.2.2
+binutils-2.16.90.0.3 (*)
+gcc-3.3.6
+gcc-3.4.4-20050512
+gcc-4.0.0
+</code>
+
+These are ...
+
+
+Thanks to the help of Herbert Poetzl, I've now complete buildable cross compiler toolchains (binutils and gcc) for these targets:
+<code>
+alpha arm cris frv h8300 hppa hppa64 i386 ia64 m32r m68k
+mips mipsel mips64 ppc ppc64 s390 s390x sh shbe sh64 sh64be
+sparc sparc64 v850 x86_64
+</code>
+and these tool versions:
+<code>
+binutils-2.15.94.0.2.2
+binutils-2.16.90.0.3 (*)
+gcc-3.3.6
+gcc-3.4.4-20050512
+gcc-4.0.0
+</code>
+
+These are ...
+<!--break-->intendended for doing cross compiles of the linux kernel only. glibc is not provided by them. If you search real cross compile packages for Debian, you should look here: http://debian.speedblue.org.<br>
+I've made a Debian repository availabe with the sources. Just add
+<pre>
+# binutils-cross-cc (2.15)
+# gcc-newlib-cc-3.3, gcc-newlib-cc-3.4, gcc-newlib-cc-4.0
+deb-src http://l4x.org/deb/ ./
+# binutils-cross-cc (2.16)
+deb-src http://l4x.org/deb-exp/ ./
+</pre>
+to your sources.list. Non Debian users can get the source by pointing the browser to http://l4x.org/deb/ and downloading the orig.tar.gz and diff.gz files respectivly. The diff.gz contains all patches which were applied to the original tree.<br>
+Due to bandwidth contraints on my side, you'll have to build the
+toolchain yourself, but thanks to the Debian package management system
+that's quite easy (I build them on sarge, ie. gcc 3.3.5 host compiler).<br>
+As a normal user switch to a new directory of your choice and do (after adding the entry to sources.list):
+<pre>
+apt-get source binutils-cc-cross
+apt-get source gcc-newlib-cc-3.3
+apt-get source gcc-newlib-cc-3.4
+apt-get source gcc-newlib-cc-4.0
+cd binutils-cc-cross*
+fakeroot debian/rules binary
+# wait about 1-2 hours
+cd ../gcc-newlib-cc-3.3*
+fakeroot debian/rules binary
+# wait about 1-2 hours
+
+# optional for 3.4, 4.0
+cd ../gcc-newlib-cc-3.4*
+fakeroot debian/rules binary
+# wait about 1-2 hours
+cd ../gcc-newlib-cc-4.0*
+fakeroot debian/rules binary
+# wait about 1-2 hours
+
+cd ..
+dpkg -i *.deb
+</pre>
+And you'll have all cross-compilers installed under /usr/cc/&lt;arch&gt; .
+I deliberately didn't choose the normal location /usr/&lt;arch&gt; to not
+get confused with real toolchains, which include libc, etc.
+That's easy to change though, just by editing debian/rules prior to
+compiling.<br>
+You should install gcc 3.3.6 before the other gcc, as those don't provide &lt;arch&gt;-linux-gccbug, &lt;arch&gt;-linux-gcov, &lt;arch&gt;-linux-cpp symlinks in /usr/cc/&lt;arch&gt;/bin/
+For convenience, the gcc-3.4 and gcc-4.0 packages install symlinks
+to /usr/cc/&lt;version&gt;, so that you can switch around different
+compiler versions by putting /usr/cc/&lt;version&gt; in front of your PATH.<br>
+The resulting directory tree will look like this (example for arm):
+<pre>
+/usr/cc/3.4.4/arm-linux-gcc
+/usr/cc/3.4.4/arm-linux-gccbug
+/usr/cc/3.4.4/arm-linux-cpp
+/usr/cc/3.4.4/arm-linux-gcov
+/usr/cc/arm/bin
+/usr/cc/arm/bin/arm-linux-gccbug-3.4.4
+/usr/cc/arm/bin/arm-linux-gccbug
+/usr/cc/arm/bin/arm-linux-gcc
+/usr/cc/arm/bin/arm-linux-gcc-3.3.6
+/usr/cc/arm/bin/arm-linux-cpp
+/usr/cc/arm/bin/arm-linux-gcov
+/usr/cc/arm/bin/arm-linux-gcc-3.4.4
+/usr/cc/arm/bin/arm-linux-gcov-3.4.4
+/usr/cc/arm/bin/arm-linux-cpp-3.4.4
+/usr/cc/arm/bin/arm-linux-addr2line
+/usr/cc/arm/bin/arm-linux-c++filt
+/usr/cc/arm/bin/arm-linux-size
+/usr/cc/arm/bin/arm-linux-readelf
+/usr/cc/arm/bin/arm-linux-nm
+/usr/cc/arm/bin/arm-linux-ar
+/usr/cc/arm/bin/arm-linux-strings
+/usr/cc/arm/bin/arm-linux-as
+/usr/cc/arm/bin/arm-linux-objcopy
+/usr/cc/arm/bin/arm-linux-ranlib
+/usr/cc/arm/bin/arm-linux-ld
+/usr/cc/arm/bin/arm-linux-strip
+/usr/cc/arm/bin/arm-linux-objdump
+</pre>
+ps: These packages are kind of a hack. The control file, for example, is generated on the fly. Please bear with we.<br>
+<br>
+(*) The 2.16 binutils are pretty pedantic about assembler code. Therefore they are in a seperate repository under http://l4x.org/deb-exp/.

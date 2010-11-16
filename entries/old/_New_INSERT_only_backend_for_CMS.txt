@@ -1,0 +1,6 @@
+New_INSERT_only_backend_for_CMS
+
+I've updated the storage engine of my cms to only make INSERTs and no UPDATEs on database level. Current objects are always retrieved by intelligent SELECTs.
+This has a number of convenient consequences, especially considering version tracking and history.
+Having lots of updates of course will bloat the database size. I'll have to find a solution for that. Also there will be problems with enabling/disabling stories and finding the correct version to display.
+

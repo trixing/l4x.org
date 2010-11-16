@@ -1,0 +1,22 @@
+<p>%(path)s was not found.
+<a href="http://www.google.com/search?sitesearch=%(ajax_search_domain)s&q=%(path_stripped)s">
+ Search for related pages?</a></p>
+
+ <script type="text/javascript">
+ window.onload = function() {
+   // start the search
+     site_search('%(ajax_search_domain)s', '%(path_stripped)s');
+
+       // insert the "not found" header before the results div
+         header = document.createElement('div');
+	   header.id = 'page-content';
+	     header.style.minHeight = '0px';
+	       header.innerHTML =
+	           '<h1 class="name">404 Not Found</h1> <br class="clearing" />' +
+		       '<p>Sorry, %(path)s was not found. Here are some related pages:</p>';
+
+		         results_div = document.getElementById('page-content');
+			   results_div.parentNode.insertBefore(header, results_div);
+			   }
+			   </script>
+

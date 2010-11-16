@@ -1,0 +1,15 @@
+Underscores_in_domain_names
+
+<p>
+Without big thinking I set up a test domain for a php based cms containing an underscore (_)
+(www_example.your.domain). The web interface to the domain server accepted the domain name without a problem. Subsequently I tested the cms with Firefox, everything worked fine. Then I wanted to try everything with Internet Explorer (6.0, XP, SP2) and the merchandising system surprisingly did not work. Searching for the error it turned out that logins also did not work. So the session management was quickly blamed. Trying to narrow the error down even a simple
+<pre>
+session_start();
+print_r($_SESSION);
+$_SESSION['x'] = 1;
+</pre>
+did not work as expected. Then I vaguely remembered that IE did not like underscores in cookie names. So I tried www-example.your.domain and bingo.</p>
+<p>Checking <a>RFC1738</a>
+section 3.1 only a-z, 0-9 and - are allowed. So it's indeed a broken
+domain name. Strange that the dns system did pass it through though.</p>
+

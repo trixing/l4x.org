@@ -1,0 +1,20 @@
+Some really small quadrocopters
+
+It's always fascinating how far you can minaturize nowadays. 
+A selection of really small quadrocopters (UAV, VTOL, Mikrocopter):
+<ul>
+<li><a href="http://aero.stanford.edu/mesicopter/">
+  MesiCopter</a>, 1999, research project, external electronics, 1.5 cm rotor diameter
+
+<li><a href="http://www.smartflyer.de/">
+  Smartflyer</a>, 2003-2009, Complete family of really small quadrocopters, from 15g upwards
+
+<li><a href="http://www.pascal.zunino.fr/microX4.htm">
+  MicroX4</a>, 2006, 16 cm, 40g, CFK props, rotors 8 cm
+
+<li><a href="http://members.vol.at/pi/">
+  YAUP</a>, 2007, (Yet another UFO project),  X-Twin props
+
+<li><a href="http://forum.mikrokopter.de/topic-13092.html">
+  Nanocopter</a> X-Twin, integrated on one PCB
+</ul>

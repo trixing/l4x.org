@@ -1,0 +1,5 @@
+Linux_kernel_compile_tests
+
+Since a while I'm doing cross compile tests for all supported linux archs. Check out the results here:
+<a href="http://l4x.org/k/">http://l4x.org/k/</a>. <br/>
+So far it seems that about half of the in-tree archs are at least sometimes successfully build.

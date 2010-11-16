@@ -1,0 +1,7 @@
+Navicore_Personal_Europe_2006-1_DVD_installation_under_Debian_GNU-Linux_with_wine_(Nokia_E60_mobile_as_target)
+
+Hey, finally people programming intelligent installers. I already thought about simulating a usb disk for wine just to install Navicore or searching a Windows PC. But you just can give the installer a directory as destination and it installs just fine. Just copy the resulting tree to a blank memory card and you're ready. Upon inserting the card, the phone will automatically install the application. Now up to some navigating. Hope it is better than nav4all, which really sucks (nice idea, but bad implementation, just like the Nokia E60 mobile phone but that are other stories).
+
+    $ wine --version
+    Wine 0.9.15
+

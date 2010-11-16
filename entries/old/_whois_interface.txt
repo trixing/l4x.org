@@ -1,0 +1,60 @@
+whois_interface
+
+<?php
+function jdi_pre($c) {
+        print '<pre>'.htmlspecialchars($c).'</pre>';
+}
+$mode = (isset($_GET['mode']))?$_GET['mode']:"whois";
+$ip = (isset($_GET['ip']))?$_GET['ip']:"";
+
+$disc= '<div style="font-size: x-small;">
+This is an interface to the Linux/Debian/Woody whois(1) program.<br />
+For questions, etc. please mail <a href="mailto:jdittmer@ppp0.net">jdittmer@ppp0.net</a>
+</div>
+<div style="color:red;">
+Please DO NOT ABUSE this interface, especially don\'t do mass lookups.
+The IPs are logged by the web server.<br/>
+The answer on this page will be delayed for 1-10 seconds to prevent this.
+
+<?php
+function jdi_pre($c) {
+        print '<pre>'.htmlspecialchars($c).'</pre>';
+}
+$mode = (isset($_GET['mode']))?$_GET['mode']:"whois";
+$ip = (isset($_GET['ip']))?$_GET['ip']:"";
+
+$disc= '<div style="font-size: x-small;">
+This is an interface to the Linux/Debian/Woody whois(1) program.<br />
+For questions, etc. please mail <a href="mailto:jdittmer@ppp0.net">jdittmer@ppp0.net</a>
+</div>
+<div style="color:red;">
+Please DO NOT ABUSE this interface, especially don\'t do mass lookups.
+The IPs are logged by the web server.<br/>
+The answer on this page will be delayed for 1-10 seconds to prevent this.
+</div><br/>
+';
+
+if (!empty($ip)) {
+print "<h1>whois answer for $ip</h1>";
+print $disc;
+flush();
+sleep(rand(1,10));
+$ip = escapeshellarg($ip);
+
+if ($mode == "whois") {
+        jdi_pre(`whois $ip`);
+}
+} else { // empty($ip)
+  print "<h1>No ip found</h1>";
+  print $disc;
+
+?>
+<form method="GET" action="<?=$_SERVER['REQUEST_URI'];?>">
+<input type="text" name="ip"/><br/>
+<input type="submit"/>
+</form>
+<?php
+}
+?>
+
+
