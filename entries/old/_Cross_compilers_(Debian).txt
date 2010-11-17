@@ -112,4 +112,5 @@ The resulting directory tree will look like this (example for arm):
 </pre>
 ps: These packages are kind of a hack. The control file, for example, is generated on the fly. Please bear with we.<br>
 <br>
-(*) The 2.16 binutils are pretty pedantic about assembler code. Therefore they are in a seperate repository under http://l4x.org/deb-exp/.
+(*) The 2.16 binutils are pretty pedantic about assembler code. Therefore they are in a seperate repository under http://l4x.org/deb-exp/.[[!meta date="2008-11-25 21:13:27"]]
+[[!meta date="2008-11-25 21:13:27"]]

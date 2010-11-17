@@ -18,3 +18,5 @@ A selection of really small quadrocopters (UAV, VTOL, Mikrocopter):
 <li><a href="http://forum.mikrokopter.de/topic-13092.html">
   Nanocopter</a> X-Twin, integrated on one PCB
 </ul>
+[[!meta date="2010-01-08 12:14:44"]]
+[[!meta date="2010-01-08 12:14:44"]]

@@ -26,3 +26,4 @@ and `my personal bibliography </personal/jdide.html>`_.
 .. _Pyblosxom: http://pyblosxom.sf.net
 .. _Pybliographer: http://pybliographer.org
 .. _Debian: http://packages.debian.org/python-bibtex
+[[!meta date="2010-02-25 11:58:23"]]

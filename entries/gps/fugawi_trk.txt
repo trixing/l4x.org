@@ -93,3 +93,5 @@ gcc fugawi.c -o fugawi
 </pre>
 Use at your own rist
 </p>
+[[!meta date="2009-09-08 13:12:12"]]
+[[!meta date="2009-09-08 13:12:12"]]

@@ -23,3 +23,5 @@ Working config file for the syncml-obex-client plugin.
 
 See also: <http://www.opensync.org/wiki/syncml-guide>
 
+[[!meta date="2007-09-03 23:06:00"]]
+[[!meta date="2007-09-03 23:06:00"]]

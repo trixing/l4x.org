@@ -22,3 +22,4 @@ There are three modes:<ul>
 </ul>
 You can use the short form, because my apache server does rewrite requests to http://w.l4x.org/ which don't exists to the script 'go.php'.<br />
 It also works with Mozilla, IE &amp; co. because the script detects if your browser is capable of wml.<br />
+[[!meta date="2008-11-25 21:13:27"]]

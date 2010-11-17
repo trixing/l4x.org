@@ -12,3 +12,5 @@ g.plot(Gnuplot.Data(x,y1,axes='x1y1'),
 </pre>
 See the little difference?
 
+[[!meta date="2006-11-16 22:42:00"]]
+[[!meta date="2006-11-16 22:42:00"]]

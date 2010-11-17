@@ -5,3 +5,5 @@ Hey, finally people programming intelligent installers. I already thought about 
     $ wine --version
     Wine 0.9.15
 
+[[!meta date="2006-11-10 21:28:00"]]
+[[!meta date="2006-11-10 21:28:00"]]

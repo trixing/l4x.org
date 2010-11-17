@@ -13,3 +13,5 @@ did not work as expected. Then I vaguely remembered that IE did not like undersc
 section 3.1 only a-z, 0-9 and - are allowed. So it's indeed a broken
 domain name. Strange that the dns system did pass it through though.</p>
 
+[[!meta date="2006-09-23 23:57:00"]]
+[[!meta date="2006-09-23 23:57:00"]]

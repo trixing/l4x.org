@@ -35,3 +35,5 @@ avrdude: safemode: Fuses OK
 avrdude done.  Thank you.</pre>
 </p>
 <p>I hope to save someone else some time with this post</p>
+[[!meta date="2010-11-12 11:06:40"]]
+[[!meta date="2010-11-12 11:06:40"]]

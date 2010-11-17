@@ -53,4 +53,5 @@ Section "Screen"
 EndSection
 </pre>
 
-Hope it helps anyone.
+Hope it helps anyone.[[!meta date="2006-08-08 22:18:00"]]
+[[!meta date="2006-08-08 22:18:00"]]

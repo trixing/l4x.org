@@ -18,4 +18,5 @@ Output after the patch:<pre>0 0 0 1280 1024 <br />
 1 1280 0 1280 1024 <br />
 2 2560 0 1280 1024 <br />
 </pre>
-Pretty successful.
+Pretty successful.[[!meta date="2004-03-08 12:47:00"]]
+[[!meta date="2004-03-08 12:47:00"]]

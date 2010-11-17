@@ -30,3 +30,5 @@ To launch (or use the installed menu link):
 
 And that's it. Wine version 1.0.1, DraftSight version 10.7.400. The process
 was tested with Debian/Squeeze as of October 2010, but should also work with Ubuntu.
+[[!meta date="2010-10-13 14:21:07"]]
+[[!meta date="2010-10-13 14:21:07"]]

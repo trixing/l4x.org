@@ -15,3 +15,5 @@ MAXPWM=hwmon0/device/pwm1=128
 </pre>
 
 This will give you 1800 rpm for CPU temperatures > 50C and 5500 rpm (the next level) for temperatures higher 70C. As the fan is barely noticeable at 1800 and 70C is only reached by running two processes with 100% CPU load for more then 5 minutes (even at 30C ambient temperature) this will give you a nearly totally silent laptop :-). A pwm value of 255 sounds like a jet starting (8000 rpm)...
+[[!meta date="2010-01-08 12:14:44"]]
+[[!meta date="2010-01-08 12:14:44"]]

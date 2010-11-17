@@ -5,3 +5,5 @@ Helpful MacOS Trivia
 [http://www.macosxhints.com/article.php?story=20070125092851828]
 As joshewah pointed out, if you have the proper codecs installed in quicktime, and have the video files under movies, the files will be seen and playable under front row without having to create any reference files. Now with this in mind, if you have your video files elsewhere, on an external drive, or network mounts(!!), simply create aliases to any network mounted video folders and put the aliases into the movies folder. As long as the drives or shares are mounted, the aliases (treated by front row gui as folders) will show all the video files on the remote drives!
 Enjoy!
+[[!meta date="2007-03-07 22:42:00"]]
+[[!meta date="2007-03-07 22:42:00"]]

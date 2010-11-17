@@ -25,3 +25,4 @@ And the same for individual tables:
      django_site                | 24 kB
 
 Now go and bug your application developers to save your resources.
+[[!meta date="2010-08-24 10:20:09"]]

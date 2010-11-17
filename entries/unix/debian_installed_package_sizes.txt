@@ -5,3 +5,5 @@ Debian: List installed packages by size with dpkg
 $ dpkg-query -W --showformat='${Installed-Size;10}\t${Package}\n' \
    | sort -k1,1n | tail -n 20 
 </pre>
+[[!meta date="2010-02-02 11:26:32"]]
+[[!meta date="2010-02-02 11:26:32"]]

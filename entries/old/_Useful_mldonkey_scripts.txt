@@ -10,4 +10,4 @@ To manage my mldonkey client under Linux I've written two scripts:<br />
 The first one ('donkeyrotate.sh') changes mldonkey port numbers and adjusts the iptables rules accordingly. Afterwards mldonkey is restarted.<br />
 The second one ('rss2donkey.pl') reads an rss feed and submits new links, which match a set of regular expressions, to mldonkey. Quite useful if run from cron.<br />
 There is also a helper script 'mlcmd' which executes its parameters via netcat on mldonkey console and a init script 'donkey'.<br />
-If anyone is interested in these, you can fetch them <a href="http://l4x.org/mld_utils-0.001.tar.bz2">here</a>. They were tested with spiralvoice 2.5-16m core with Debian/sarge.
+If anyone is interested in these, you can fetch them <a href="http://l4x.org/mld_utils-0.001.tar.bz2">here</a>. They were tested with spiralvoice 2.5-16m core with Debian/sarge.[[!meta date="2008-11-25 21:13:27"]]
