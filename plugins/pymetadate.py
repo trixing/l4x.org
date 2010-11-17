@@ -1,7 +1,4 @@
-import os, sys, anydbm, re, datetime, time
-
-#from config import py
-from syslog import syslog
+import re, time
 import re
 
 DAYMATCH = re.compile('([0-9]{4})-([0-1][0-9])-([0-3][0-9])(-([0-2][0-9])-([0-5][0-9])-([0-5][0-9]))?')
@@ -36,9 +33,9 @@ def cb_filestat(args):
                 args["mtime"][8] = mtime
         return args
 
-def cb_preformat(args):
-	s = args['story']
-	s = re.sub(r'\[\[(.*?)\]\]','',s)
-	return s
+def cb_postformat(args):
+	args['entry_data']['body'] = re.sub(r'\[\[(.*?)\]\]','',args['entry_data']['body'])
+	return args['entry_data']
 
+#print cb_preformat({'story':'Hallo'})
 #print get_mtime('./entries/imprint.txt')
