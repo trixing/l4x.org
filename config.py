@@ -34,10 +34,10 @@ py = {}
 py["blog_title"] = "l4x.org"
 
 # What is the description of this blog?
-py["blog_description"] = "home of jdi"
+py["blog_description"] = "Home of Jan Dittmer"
 
 # Who are the author(s) of this blog?
-py["blog_author"] = "j. dittmer et al."
+py["blog_author"] = "jdi et al."
 
 # What is the email address through which readers of the blog may contact
 # the authors?
