@@ -3,9 +3,9 @@ Visualizing my Ph.D. work
 <p>
 I finished my Ph.D. thesis about electrostatic micromechanical devices
 in April 2010 (<a href="http://www.amazon.de/Untersuchungen-elektrischer-Spannungen-mikroelektromechanischen-Bauelementen/dp/3832291342/ref=sr_1_1?ie=UTF8&s=books&qid=1294634518&sr=8-1">Buy</a>). Originally
-I wanted to print a small flip-book in the headline visualizing
+I wanted to print a small flip-book in the header or footer visualizing
 my work, but
-discarded this plan after seeing some eyebrow raising of my proof readers.</p>
+discarded the plan after seeing some eyebrow raising of my proof readers.</p>
 
 <p>I still had the idea in mind though and after some tinkering around
 implemented an animation with <a href="http://www.povray.org">Povray</a>.</p>
@@ -15,6 +15,9 @@ implemented an animation with <a href="http://www.povray.org">Povray</a>.</p>
 <p>To get a paper flip-book from that, the images have to be distributed over
 a piece of paper. As I don't like office applications very much, I
 ended up writing a small Python script which creates a PDF employing
-the excellent pypdf package.</p>
+the excellent pypdf package. <a href="http://git.l4x.org/?p=dr-povray.git;a=blob_plain;f=out/seesaw_hq.pdf;hb=HEAD">The result</a>
+just lacks some cutting lines.</p>
 
-<p>You can find all the necessary files <a href="http://git.l4x.org/?p=dr-povray.git">here</a>.</p>
+<p>All necessary files are in <a href="http://git.l4x.org/?p=dr-povray.git">this</a> git repository.</p>
+
+[[!meta date="2011-01-09 21:00:00"]]
