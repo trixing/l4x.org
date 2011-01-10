@@ -1,0 +1,20 @@
+Visualizing my Ph.D. work
+
+<p>
+I finished my Ph.D. thesis about electrostatic micromechanical devices
+in April 2010 (<a href="http://www.amazon.de/Untersuchungen-elektrischer-Spannungen-mikroelektromechanischen-Bauelementen/dp/3832291342/ref=sr_1_1?ie=UTF8&s=books&qid=1294634518&sr=8-1">Buy</a>). Originally
+I wanted to print a small flip-book in the headline visualizing
+my work, but
+discarded this plan after seeing some eyebrow raising of my proof readers.</p>
+
+<p>I still had the idea in mind though and after some tinkering around
+implemented an animation with <a href="http://www.povray.org">Povray</a>.</p>
+
+<object width="480" height="385"><param name="movie" value="http://www.youtube.com/v/f7_VrHmQ9U0?fs=1&amp;hl=en_US"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/f7_VrHmQ9U0?fs=1&amp;hl=en_US" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="480" height="385"></embed></object>
+
+<p>To get a paper flip-book from that, the images have to be distributed over
+a piece of paper. As I don't like office applications very much, I
+ended up writing a small Python script which creates a PDF employing
+the excellent pypdf package.</p>
+
+<p>You can find all the necessary files <a href="http://git.l4x.org/?p=dr-povray.git">here</a>.</p>
