@@ -1,2 +1,2 @@
 #!/bin/sh
-svn co https://pyblosxom.svn.sourceforge.net/svnroot/pyblosxom/trunk/contrib pyblosxom-contrib 
+svn export https://pyblosxom.svn.sourceforge.net/svnroot/pyblosxom/trunk/contrib pyblosxom-contrib
