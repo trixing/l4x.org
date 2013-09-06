@@ -1,0 +1,26 @@
+/*	Archives	*/
+
+#archives {
+}
+.closed {
+	background: url(/images/closed.png) left center no-repeat;
+}
+.open {
+	background: url(/images/opened.png) left center no-repeat;
+}
+.clicker {
+	cursor: pointer;
+}
+.archiveYear {
+        text-indent: 1.5em;
+        margin: 5px 0px 2px 0px;
+}
+.archiveMonth {
+        text-indent: 2em;
+	margin: 4px 0px 2px 10px;
+}
+.archivePost {
+	text-indent: 2.5em;
+	font-size: 0.9em;
+	margin: 0px 0px 3px 15px;
+}
