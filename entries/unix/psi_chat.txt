@@ -1,0 +1,9 @@
+psi chat client disconnecting all the time?
+
+Try:
+<pre>
+# psi --status=online &gt;/dev/null 2>&1
+*/5 * * * * dbus-send --type=method_call --dest=org.psi-im.Psi /Main org.psi_im.Psi.Main.setStatus string:"online" string:""
+</pre>
+
+[[!meta date="2013-09-05 23:00:00"]]
