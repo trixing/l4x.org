@@ -1,7 +1,7 @@
 import re, time
 import re
 
-DAYMATCH = re.compile('([0-9]{4})-([0-1][0-9])-([0-3][0-9])(-([0-2][0-9])-([0-5][0-9])-([0-5][0-9]))?')
+DAYMATCH = re.compile('([0-9]{4})-([0-1][0-9])-([0-3][0-9])(.([0-2][0-9]):([0-5][0-9]):([0-5][0-9]))?')
 
 def get_mtime(fname):
     f = file(fname,"r")
@@ -18,9 +18,10 @@ def get_mtime(fname):
                 minute = 0
             else:
                 hr = int(mtch.group(5))
-                minute = int(mtch.group(6)) 
+                minute = int(mtch.group(6))
             mtime = time.mktime((year,mo,day,hr,minute,0,0,0,-1))
-        except:
+        except Exception as e:
+            print e
             # TODO: Some sort of debugging code here?
             pass
 
@@ -36,6 +37,3 @@ def cb_filestat(args):
 def cb_postformat(args):
 	args['entry_data']['body'] = re.sub(r'\[\[(.*?)\]\]','',args['entry_data']['body'])
 	return args['entry_data']
-
-#print cb_preformat({'story':'Hallo'})
-#print get_mtime('./entries/imprint.txt')
