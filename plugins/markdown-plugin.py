@@ -21,6 +21,7 @@ below will be passed through python-markdown.
 
 Copyright (C) 2005, 2011 Benjamin Mako Hill
 Copyright (c) 2009, 2010, seanh
+Copyright (c) 2015, Jan Dittmer
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -31,13 +32,50 @@ your option) any later version.
 _version__ = '0.3'
 __author__ = 'Benjamin Mako Hill <mako@atdot.cc>'
 __author__ = 'seanh <snhmnd@gmail.com>'
+__author__ = 'Jan Dittmer <jdi@l4x.org>'
 
-FILENAME_EXTENSIONS = ('.txt','.text','.mkdn','.markdown','.md','.mdown','.markdn','.mkd','.mdwn')
+FILENAME_EXTENSIONS = ('.mkdn','.markdown','.md','.mdown','.markdn','.mkd','.mdwn')
 
 import markdown
 import os
+from Pyblosxom import tools
 
 md = markdown.Markdown(output_format='html4',extensions=['extra',])
+
+FILE_EXT = 'md'
+
+
+def cb_entryparser(args):
+    args[FILE_EXT] = readfile
+    return args
+
+
+def readfile(filename, request):
+    entryData = {}
+    lines = open(filename).readlines()
+    if len(lines) == 0:
+        return {"title": "", "body": ""}
+
+    title = lines.pop(0)
+    if title.startswith('#'):
+        title = title[1:]
+
+    # absorb meta data
+    while lines and lines[0].startswith("#"):
+        meta = lines.pop(0)
+        meta = meta[1:].strip()     # remove the hash
+        meta = meta.split(" ", 1)
+        entryData[meta[0]] = meta[1]
+
+    body = md.convert(''.join(lines))
+    body = body.replace('<code>', '').replace('</code>', '')
+    entryData["title"] = title
+    entryData["body"] = body
+    # Call the postformat callbacks
+    tools.run_callback('postformat', {'request': request,
+                                      'entry_data': entryData})
+    return entryData
+
 
 def cb_story(args):
 	entry = args['entry']
