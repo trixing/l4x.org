@@ -10,7 +10,6 @@
 
 import os
 basedir = os.path.dirname(os.path.realpath(__file__))
-#basedir = '/home/jdittmer/web/l4x.org'
 
 # Don't touch this next line.
 py = {}
@@ -47,7 +46,7 @@ py["blog_email"] = "jdi@l4x.org"
 # on your blog.  Generally, this is the copyright information.
 # This is used in the Atom feeds.  Leaving this blank or not filling
 # it in correctly could result in a feed that doesn't validate.
-py["blog_rights"] = "Copyright 2008-2010 Jan Dittmer"
+py["blog_rights"] = "Copyright 2008-2015 Jan Dittmer"
 
 # What is this blog's primary language (for outgoing RSS feed)?
 py["blog_language"] = "en"
@@ -76,7 +75,7 @@ py["tag_url"] = '/tag/'
 
 # List of strings with directories that should be ignored (e.g. "CVS")
 # ex: py['ignore_directories'] = ["CVS", "temp"]
-py["ignore_directories"] = [".svn", "old",]
+py["ignore_directories"] = [".svn", "old", ".git"]
 
 # Should I stick only to the datadir for items or travel down the directory
 # hierarchy looking for items?  If so, to what depth?
@@ -129,13 +128,7 @@ py["default_flavour"] = "html"
 # should only contain the related plugins.
 # Example: py['plugin_dirs'] = [ "/home/joe/blog/plugins",
 #                                "/var/lib/pyblosxom/plugins" ]
-pd = basedir + "/pyblosxom-contrib/plugins"
-py["plugin_dirs"] = [ 
-	basedir + "/plugins",
-	pd + "/calendar", 
-	basedir + "/pyblosxom-contrib/entryparsers", 
-	pd + "/archives",
-	]
+py["plugin_dirs"] = [basedir + "/plugins"]
 
 # There are two ways for PyBlosxom to load plugins.  The first is the
 # default way which involves loading all the plugins in the lib/plugins
@@ -148,7 +141,8 @@ py["plugin_dirs"] = [
 # If you specify an empty list, then this will load no plugins.
 # ex: py["load_plugins"] = ["pycalendar", "pyfortune", "pyarchives"]
 py["load_plugins"] = ["pycalendar","pystaticfile","pyarchives",
-		"filekicker","tags","pymetadate","rst","404","bib",]
+		"filekicker","tags","pymetadate","rst","404","bib",
+        "markdown-plugin"]
 
 
 
@@ -157,7 +151,7 @@ py["load_plugins"] = ["pycalendar","pystaticfile","pyarchives",
 # ======================
 
 # What should this blog use as its base url?
-py["base_url"] = "http://l4x.org"
+py["base_url"] = "https://l4x.org"
 
 # Default parser/preformatter. Defaults to plain (does nothing)
 py["parser"] = "plain"
@@ -210,7 +204,7 @@ py['archive_template'] = '<li><a href="%(base_url)s/%(Y)s/%(b)s">%(b)s %(Y)s</a>
 
 py['calendar_firstweekday'] = 0
 
-py['tag_url'] = 'http://l4x.org/tags/'
+py['tag_url'] = 'https://l4x.org/tags/'
 py['pretext'] = '<span class="tags">Tags '
 py['posttext'] = '</span>'
 py['tagsep'] = ', '
