@@ -1,0 +1,23 @@
+Bluetooth_Linux_Link_Collection
+
+I'm trying to get the rfcomm thing going with my new Nokia E60, so that I can go online over it from my laptop via UMTS. With my Nokia 6230 it worked right out of the box. So I did some research but haven't found a solution yet. This story is just an anchor for some memorable links.
+
+
+<ul>
+<li>
+<a href="http://www.teaparty.net/technotes/blue-gprs.html">Tom's Guide with 6310i</a></li>
+<li>
+<a href="http://www.jpberlin.de/j.kowal/wiki/index.php/Vaio_-_Bluetooth">Bluetooth  on Vaio and explanation for the "Address already in use" error</a></li>
+<li>
+<a href="http://www.integrasoftware.it/index.php?option=com_content&task=view&id=84&Itemid=28">
+Nice KDE centric guide with screenshots</a></li>
+<li>
+<a href="http://www.gentoo.org/doc/en/bluetooth-guide.xml">Gentoo Guide, very thorough</a></li>
+<li>
+<a href="http://www.mobguru.com/Linux+GPRS+Bluetooth.htm">Yet another nice guide</a></li>
+</ul>
+
+I also found a link to gnubox which sounds very interesting. It allows you to use your LAN to go online from your phone via bluetooth, so just the other way round. That's of course not necessary for the E60 because it integrates WLAN. Here is a link to a <a href="http://www.unix-ag.uni-kl.de/~leonard/linux-n6600-howto.html">Nice setup guide with the n6600</a> and <a href="http://gnubox.dnsalias.org/gnubox/">here is all the information you need</a>.
+
+Perhaps these links help someone.[[!meta date="2006-06-29 23:42:00"]]
+[[!meta date="2006-06-29 23:42:00"]]

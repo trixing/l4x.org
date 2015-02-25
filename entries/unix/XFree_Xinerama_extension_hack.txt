@@ -1,0 +1,22 @@
+XFree_Xinerama_extension_hack
+
+
+When installing my 3 monitor setup I quickly discovered that the native xfree xinerama extension is incompatible with nvidia twinview. You can only have either one. This leads to applications believing I have one 2560x1024 screen and one 1280x1024 screen. If I maximized windows they would always span two screens.
+Therefore I spent a long time searching for a solution on google, but unfortunately there are a) few people with 3 monitors and b) no one had solved this. So I decided to patch the X server.
+What I've done so far is to take programs/Xserver/Xext/panoramiX.c and fake the reply like this:
+
+
+When installing my 3 monitor setup I quickly discovered that the native xfree xinerama extension is incompatible with nvidia twinview. You can only have either one. This leads to applications believing I have one 2560x1024 screen and one 1280x1024 screen. If I maximized windows they would always span two screens.
+Therefore I spent a long time searching for a solution on google, but unfortunately there are a) few people with 3 monitors and b) no one had solved this. So I decided to patch the X server.
+What I've done so far is to take programs/Xserver/Xext/panoramiX.c and fake the reply like this:<br /><pre>--- x/xc/programs/Xserver/Xext/panoramiX.c      2003-11-10 19:21:43.000000000 +0100<br />+++ x2/xc/programs/Xserver/Xext/panoramiX.c     2004-02-15 11:39:15.000000000 +0100<br />@@ -1026,7 +1030,8 @@<br /> <br />     rep.type = X_Reply;<br />     rep.sequenceNumber = client-&gt;sequence;<br />-    rep.number = (noPanoramiXExtension) ? 0 : PanoramiXNumScreens;<br />+   /* rep.number = (noPanoramiXExtension) ? 0 : PanoramiXNumScreens; */<br />+    rep.number = (noPanoramiXExtension) ? 0 : (PanoramiXNumScreens + 1);<br />     rep.length = rep.number * sz_XineramaScreenInfo &gt;&gt; 2;<br />     if (client-&gt;swapped) {<br />        register int n;<br />@@ -1040,11 +1045,17 @@<br />        xXineramaScreenInfo scratch;<br /><br />        int i;<br /> <br />-       for(i = 0; i &lt; PanoramiXNumScreens; i++) {<br />+       for(i = 0; i &lt; (PanoramiXNumScreens + 1); i++) {<br />+               /*<br />            scratch.x_org  = panoramiXdataPtr[i].x;<br />            scratch.y_org  = panoramiXdataPtr[i].y;<br />            scratch.width  = panoramiXdataPtr[i].width;<br />            scratch.height = panoramiXdataPtr[i].height;<br />+           */<br />+           scratch.x_org  = 1280 * i;<br />+           scratch.y_org  = 0;<br />+           scratch.width  = 1280;<br />+           scratch.height = 1024;<br /><br /></pre>
+This is pretty specific, so I'm currently working my way through the code to make this configurable in the XF86Config-4.<br />
+<br />
+I also wrote a small test program:<br /><pre>#include &lt;<span class="start-tag">stdio</span><span class="attribute-name">.h</span>&gt;<br />#include &lt;<span class="start-tag">X11</span><span class="attribute-name">/extensions/Xinerama.h</span>&gt;<br /><br />int main() {<br />        XineramaScreenInfo *xsi;<br />        Display *dpy;<br />        int number;<br />        int i;<br />        dpy = XOpenDisplay(NULL);<br />        xsi = XineramaQueryScreens(dpy, &amp;<span class="entity">number</span>);<br />        for(i = 0; i &lt; number; i++) {<br />                printf(&quot;%d %d %d %d %d <br />&quot;, xsi[i].screen_number, xsi[i].x_org, <br />                        xsi[i].y_org, xsi[i].width, xsi[i].height);<br />        }<br />        return 1;<br />}</pre>
+Output before the patch: (Columns are screennum x y width height):
+<pre>0 0 0 2560 1024<br />2 2560 0 1280 1024<br /></pre>
+Output after the patch:<pre>0 0 0 1280 1024 <br />
+1 1280 0 1280 1024 <br />
+2 2560 0 1280 1024 <br />
+</pre>
+Pretty successful.[[!meta date="2004-03-08 12:47:00"]]
+[[!meta date="2004-03-08 12:47:00"]]

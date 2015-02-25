@@ -1,0 +1,50 @@
+postgresql:_Grant_all_rights_on_a_database_to_a_user
+
+Ever tried the $SUBJECT task with postgresql? It's a bit difficult.<br> You need something along the lines of this...
+
+
+Ever tried the $SUBJECT task with postgresql? It's a bit difficult.<br> You need something along the lines of this...
+<!--break-->
+
+<pre>
+#!/bin/sh
+
+DB="$1"
+USER="$2"
+PSQL="psql -q -n -A -t"
+SCHEMES="'public'"
+
+if [ -z "$1" ]; then
+        echo No name given
+        exit
+fi
+
+if [ -z "$2" ]; then
+        USER="$1"
+fi
+echo "-- Granting rights on $DB to $USER ($SCHEMES)"
+# tables
+Q="select 'grant all on '||schemaname||'.'||tablename||' to \\\"$USER\\\";' from pg_tables where schemaname in ($SCHEMES);"
+$PSQL -c "$Q" "$DB";
+
+# views
+Q="select 'grant all on '||schemaname||'.'||viewname||' to \\\"$USER\\\";' from pg_views where schemaname in ($SCHEMES);"
+$PSQL -c "$Q" "$DB";
+
+# sequences
+Q="select 'grant all on function '||n.nspname||'.'||p.proname||'('||oidvectortypes(p.proargtypes)||') to \\\"$USER\\\";' from pg_proc p, pg_namespace n where n.oid = p.pronamespace and n.nspname in ($SCHEMES);"
+$PSQL -c "$Q" "$DB";
+
+# functions
+Q="select 'grant all on '||n.nspname||'.'||c.relname||' to \\\"$USER\\\";' from pg_class c, pg_namespace n where n.oid = c.relnamespace and c.relkind IN ('S') and n.nspname in ($SCHEMES);"
+$PSQL -c "$Q" "$DB";
+
+</pre>
+(Sorry for the crappy formatting, drupal &amp; me sucks)<br>
+<br>
+This will generate a script which in turn will grant the rights.
+So a typical call will be (as postgres user)
+<pre>
+./grant mydatabase myuser | psql mydatabase
+</pre>[[!meta date="2005-06-09 23:27:00"]]
+[[!meta date="2005-06-09 23:27:00"]]

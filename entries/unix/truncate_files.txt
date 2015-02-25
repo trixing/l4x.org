@@ -1,0 +1,6 @@
+How to truncate a file the UNIX way
+
+Astonishingly a search for 'truncate unix utility' doesn't turn up anything useful<br />apart from hundreds of references to the ftruncate man page.<br />This is how I did it:<br /><pre><br />dd of=destfile bs=1 seek=newsize count=1 &lt;/dev/null<br /></pre><br />where newsize can be 1k, 400G, whatever and destfile is obviously the<br />destination filename.
+
+[[!meta date="2008-04-09 20:35:00"]]
+[[!meta date="2008-04-09 20:35:00"]]

@@ -1,0 +1,39 @@
+Atmel 8-bit devices and invalid device signatures
+
+<p>It just took me the better part of a day to find out
+why my o-so-simple microcontroller couldn't be programmed.
+I've this really simple board, consisting basically of a
+<a href="http://www.atmel.com/dyn/products/product_card.asp?part_id=2004">ATmega8</a>
+or ATmega8l, a 6-pin standard ISP connector and some surrounding
+power supply parts (no external clock).</p>
+
+<p>Now, if you take a ATmega8 from the reel it comes pre-programmed
+to run with 1 MHz from the internal oscillator. Trying to access and
+program the device connected to an STK500 SDK using <em>avrdude</em> always
+resulted in errors:
+<pre>avrdude: Device signature = 0x010305</pre> or
+<pre>avrdude: Device signature = 0x010307</pre> Strange.
+Because normally you can either program the device or it doesn't
+respond at all (0x010301 and 0x010304 also turned up sometimes, in
+AVR studio speak: 0x01 0x03 [0x05,0x04,0x01].</p>
+<p>I double checked all solder connections and
+even tried three (!) different devices on different PCBs, even from
+different production lots. Always the same error.</p>
+<p>Meanwhile I had already
+checked the STK500 against other development boards equipped
+with an ATmega168 and ATmega8 - those worked.</p>
+<p>Finally I dug out an old Windows XP machine running the
+AVRstudio, and there it occurred to me:</p>
+<img src="/uc/atmega8_stk500_fail.jpg" alt="atmega8 stk500 isp frequency">
+<p>To speed up programming, I had increased the ISP frequency from
+default 115.2 kHz to 460.8 kHz. Turns out that the fine print says,
+that the ISP frequency should be lower than 1/4 of the microcontroller
+clock (1 MHz in this case). 1 MHz / 4 = 250 kHz - so I was well above.
+Turning the frequency down to 115.2 kHz made everything magically work.
+<pre>avrdude: Device signature = 0x1e9307
+avrdude: safemode: Fuses OK
+avrdude done.  Thank you.</pre>
+</p>
+<p>I hope to save someone else some time with this post</p>
+[[!meta date="2010-11-12 11:06:40"]]
+[[!meta date="2010-11-12 11:06:40"]]

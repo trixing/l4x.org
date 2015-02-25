@@ -1,0 +1,84 @@
+namelen.sh
+
+
+In a recent discussion on LKML (<a href="http://marc.theaimsgroup.com/?t=108400488800001&r=1&w=2">Link</a>) the question came up
+how long an average filename is.
+To answer that, I wrote a small bash script. 94.15 Percent of the filenames in my home directory are shorter than 25 characters. Here is a sample output and the source code.
+
+
+
+In a recent discussion on LKML (<a href="http://marc.theaimsgroup.com/?t=108400488800001&r=1&w=2">Link</a>) the question came up
+how long an average filename is.
+To answer that, I wrote a small bash script. 94.15 Percent of the filenames in my home directory are shorter than 25 characters. Here is a sample output and the source code.
+<!--break-->
+Sample Output:<pre>
+Searching...
+Getting name length...
+350932 Files considered
+Length Files Percent Cumulative
+ 1   1761   0.50   0.50
+ 2   3315   0.94   1.45
+ 3  14846   4.23   5.68
+ 4  16595   4.73  10.41
+ 5   8413   2.40  12.80
+ 6  12311   3.51  16.31
+ 7  30322   8.64  24.95
+ 8  31808   9.06  34.02
+ 9  29943   8.53  42.55
+10  28826   8.21  50.76
+11  24336   6.93  57.70
+12  21693   6.18  63.88
+13  10922   3.11  66.99
+14   9091   2.59  69.58
+15  17178   4.89  74.48
+16   8565   2.44  76.92
+17   4553   1.30  78.21
+18   3840   1.09  79.31
+19   4596   1.31  80.62
+20   3536   1.01  81.63
+21   5015   1.43  83.05
+22   4216   1.20  84.26
+23   4839   1.38  85.63
+24   6868   1.96  87.59
+25   5306   1.51  89.10
+26  17719   5.05  94.15
+27    468   0.13  94.29
+28    523   0.15  94.44
+29    386   0.11  94.55
+30    325   0.09  94.64
+31    283   0.08  94.72
+32   4577   1.30  96.02
+33    187   0.05  96.08
+34    139   0.04  96.12
+35    162   0.05  96.16
+36  12359   3.52  99.68
+</pre>
+Source:
+<pre>#!/bin/sh
+FN="/tmp/filenames"
+FNL="/tmp/filenames1"
+echo Searching...
+find . ! -name '.' ! -name '..' > $FN
+echo "Getting name length..."
+echo -n > $FNL
+for i in `cat $FN`; do
+        x=${i##*/}
+        echo ${#x} >> $FNL
+done
+TOTAL=`cat $FNL | wc -l`
+echo $TOTAL Files considered
+echo "Length Files Percent Cumulative"
+cum=0
+totcnt=0
+for i in `seq 1 100`; do
+        cnt=`grep "^$i$" $FNL | wc -l`
+        totcnt=$((cnt + totcnt))
+        perc=$(echo "scale=8; $cnt * 100 / $TOTAL" | bc)
+        cum=$(echo "scale=8; $perc + $cum" | bc)
+        echo $i $cnt $perc $cum | awk -F' ' '{printf "%2d %6d %6.2f %6.2f\n", $1, $2, $3, $4}'
+done
+rm -f $FN
+rm -f $FNL
+echo "Done."
+</pre>[[!meta date="2004-05-10 19:54:00"]]
+[[!meta date="2004-05-10 19:54:00"]]

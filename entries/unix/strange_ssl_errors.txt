@@ -1,0 +1,15 @@
+Strange SSL Errors happening...
+
+If you ever encounter Firefox saying
+<pre>Error code: ssl_error_rx_record_too_long</pre>
+or Chrome / Chromium / Webkit complaining with
+<pre>Error 107 (net::ERR_SSL_PROTOCOL_ERROR): SSL protocol error.</pre>
+and you just reconfigured your Apache webserver, adding a new
+VirtualHost on port 443, make sure you didn't forget
+<pre>SSLEnable on</pre>
+in the VirtualHost block.
+Otherwise Apache tries to serve non-encrypted content over the SSL-port and web browsers don't
+like that and don't produce helpful error messages. Nothing in the
+Apache log files either...
+
+[[!meta date="2010-11-17 21:03:00"]]

@@ -1,0 +1,16 @@
+Python_Gnuplot_PlotItems_Data_axis_vs._axes
+
+In Gnuplot to set different y-axis scaling left and right:
+<pre>
+gnuplot> plot sin(x)    axis x1y1, \
+              sin(x)**2 axis x1y2
+</pre>
+In the Python Gnuplot module you rather use
+<pre>
+g.plot(Gnuplot.Data(x,y1,axes='x1y1'),
+       Gnuplot.Data(x,y1,axes='x1y2'))
+</pre>
+See the little difference?
+
+[[!meta date="2006-11-16 22:42:00"]]
+[[!meta date="2006-11-16 22:42:00"]]

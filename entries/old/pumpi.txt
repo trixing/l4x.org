@@ -1,0 +1,87 @@
+pumpi_(german)
+
+
+(Altes c't Projekt)
+<div align="center"><h1 style="text-align: left;"><br /></h1><h1>PUMP-Software</h1></div>
+Die Software basiert auf der Pumpi in der Version vom 22.02.2000 von Jens und Holger.<br />
+Weitere Pumpi basierte Software gibts auf der Seite von Bernd: 
+<a href="http://home.t-online.de/home/enigma1/">http://home.t-online.de/home/enigma1/</a>
+
+<br />
+FÃ¼r weiter Infos zum Thema empfiehlt sich der Besuch des Newsservers des Pump-Teams:
+<a href="nntp://news.est.rwth-aachen.de">news.est.rwth-aachen.de</a><br />
+<br /><br />
+<h3>Features:</h3>
+<ul>
+<li>AusschlieÃŸlich fÃ¼r 4x20 Displays
+</li><li>UnterstÃ¼tzung fÃ¼r mehr als 8 Tasten
+</li><li>Benutzt XMS fÃ¼r die Dateiliste
+</li><li>Playlists laden/speichern und bald auch editieren
+</li><li>Echtes Shuffle
+</li><li>Repeatfunktion
+</li><li>Restricted Mode
+
+</li><li>Lange Dateinamen von Joliet CDs inkl. Verzeichnisse
+</li><li>Sortierung nach Artist UND Song
+</li><li>AutoUpdate von eingelegter CD
+</li><li>...
+</li></ul>
+
+
+
+(Altes c't Projekt)
+<div align="center"><h1 style="text-align: left;"><br /></h1><h1>PUMP-Software</h1></div>
+Die Software basiert auf der Pumpi in der Version vom 22.02.2000 von Jens und Holger.<br />
+Weitere Pumpi basierte Software gibts auf der Seite von Bernd: 
+<a href="http://home.t-online.de/home/enigma1/">http://home.t-online.de/home/enigma1/</a>
+
+<br />
+FÃ¼r weiter Infos zum Thema empfiehlt sich der Besuch des Newsservers des Pump-Teams:
+<a href="nntp://news.est.rwth-aachen.de">news.est.rwth-aachen.de</a><br />
+<br /><br />
+<h3>Features:</h3>
+<ul>
+<li>AusschlieÃŸlich fÃ¼r 4x20 Displays
+</li><li>UnterstÃ¼tzung fÃ¼r mehr als 8 Tasten
+</li><li>Benutzt XMS fÃ¼r die Dateiliste
+</li><li>Playlists laden/speichern und bald auch editieren
+</li><li>Echtes Shuffle
+</li><li>Repeatfunktion
+</li><li>Restricted Mode
+
+</li><li>Lange Dateinamen von Joliet CDs inkl. Verzeichnisse
+</li><li>Sortierung nach Artist UND Song
+</li><li>AutoUpdate von eingelegter CD
+</li><li>...
+</li></ul>
+<br />
+<h3>Hier jetzt mal eine kurze Bedienungsanleitung:</h3>
+Es gibt grundsÃ¤tzlich drei Modi: HauptmenÃ¼, Dateiauswahl/Playlisterstellung und Spielanzeige<br />
+Zum <strong>HauptmenÃ¼</strong> brauch ich ja wohl nicht so viel zu sagen... <strong>ENTER</strong> wÃ¤hlt eine Option aus.<br />
+
+Wenn man ein Laufwerk gewÃ¤hlt hat, erstellt Pumpi automatisch eine Playlist (je nach Eintellungung im Shuffle Modus) die
+alle Songs der CD enthÃ¤lt und je nach Option Autostart, fÃ¤ngt er diese an zu spielen.<br />
+In der <strong>Spielanzeige</strong> haben dann folgende Tasten eine Funktion:<br />
+<strong>REPEAT,SHUFFLE,PLAY,PAUSE,STOP,SKIP,CUE,EJECT</strong> SelbsterklÃ¤rend (oder nicht?)<br />
+<strong>STOP STOP</strong> LÃ¶scht die aktuelle Playlist<br />
+<strong>MENUE</strong> Wechselt in die Dateiauswahl (und auch zurÃ¼ck)<br />
+
+<strong>INFO</strong>  Zeigt Infos zum aktuellen MP3, bei mehrfach betÃ¤tigung kann man auch Volume/Bass/Treble verstellen<br />
+In der 3. Zeile bedeutet ein 'R' Repeat, 'S' Shuffle und 'P' selbstprogrammierte Playlist. Die vierstellige Zahl bedeutet
+im Playlistmodus den aktuellen Playlisttitel, sonst zeigt er da die laufende Nummer des MP3 an.<br />
+Wenn mann jetzt mit <strong>MENUE</strong> in die Dateiauswahl gewechselt hat, zeigt er die MP3s des gewÃ¤hlten Mediums an. Mit <strong>ENTER</strong> kann man ein Lied zur Playlist hinzufÃ¼gen bzw. wieder lÃ¶schen. Ob ein Song in der Playlist ist, sieht man am 'P' davor! Mit <strong>PLAY</strong> kann man einen Song auch direkt anspielen. Hat man dabei schon eine eigene Playlist erstellt, so wird diese nicht gelÃ¶scht, sondern der gewÃ¤hlte Song an erste Stelle gestellt. Hat man keine eigenen wird einfach der Song angespielt. Hat man die Verzeichnidarstellung aktiviert, so kann man mit <strong>ENTER</strong> ein Verzeichnis wÃ¤hlen oder mit <strong>PLAY</strong> eine Playlist erstellen die (rekursiv) alle MP3s eines Verzeichnisses enthÃ¤lt. (Sehr praktisch, wenn man seine MP3s nach Genren sortiert hat! Mit <strong>BACK</strong> wechselt man immer in eine hÃ¶here Verzeichnisebene. (d.h. man muss nicht bis ganz nach unten scrollen). Achja, wenn im Hintergrund ein Lied lÃ¤uft, geht er nach ca. 5sek ohne Taste automatisch wieder in die Spielanzeige.
+
+<br />So mehr fÃ¤llt mir erstmal nicht ein - alles unklar? bei fragen bitte email!<br /><br />
+
+<h3>TODO: (nach Wichtigkeit)</h3>
+<pre>* Playlists (mit langen Dateinamen) von CD Laden<br />* AudioCDs<br />* Remotesteuerung Ã¼ber Netzwerk<br />* Ein MP3 komplett in RAM laden vor/wÃ¤hrend des Abspielens (cdwechsel wÃ¤hrend des abspielens mÃ¶glich!)<br />* File-/Playlist Ã¼ber mehrere Laufwerke<br />* UnterstÃ¼tzung fÃ¼r 2x40 und 16x4 displays<br />* Lange Dateinamen fuer Festplatten unter Dos 6.xx/Dos 7.xx<br /></pre>
+<h3>KNOWN BUGS</h3>
+<pre>* Absturz bei Medien ohne Unterverzeichnisse<br />* Kontrasteinstellung/wiederherstellung<br /></pre>
+
+<h3>NEWS:</h3>
+<pre>10.4.<br />* Funktionierendes IR-Setup<br />* Funktionierendes Verzeichnis-Skippen<br />* So ein paar bugs behoben (unter anderem runtime error 161 beim einlesen)<br /><br />4.4.<br />* Automatische Updatefunktion:<br />  1) in die autoexec.bat hinter den eintrag von pumpi.exe folgende zeile schreiben:<br />     copy newpumpi.exe pumpi.exe /y<br />  2) cd einlegen mit pumpi.exe im hauptverzeichnis<br />  3) im MenÃ¼ Einstellung cdrom laufwerk wÃ¤hlen<br />  4) 'Update Pumpi' wÃ¤hlen<br />  5) Jetzt Pumpi beenden und den Pump neu booten<br />  Schritt 1) muÃŸ nur einmal ausgefÃ¼hrt werden!<br />* Symbole in der 4. Zeile einstellig (M fÃ¼r Menue, ? fuer Info<br />* Neues Scrolling in der Playlist<br />* Er geht aus der MP3Liste jetzt erst dann automatisch zurÃ¼ck wenn mindestens einmal hin und her gescrollt wurde<br />* Resumefunktion implementiert, bitte testen<br />* Sortierung geÃ¤ndert nach Artist UND Song<br />* Playedit sollte funktionieren<br />* Keine Sicherheitsabfrage mehr bei Playlist laden<br />* bugfixes<br /><br />2.4.<br />* IR Setup scheint zu gehen<br />* Playlist umsortieren auch<br />* Bug in der Bitrate Erkennung behoben, welcher zum Totalabsturz fÃ¼hrte<br />* 'ZurÃ¼ck' in 'Back' umgetauft<br />* Viele kleinere Sachen<br /><br />29.3.<br />* Kleinen Bug behoben, der Pumpi beim einlesen von dateien kleiner 200 Byte zum Absturz brachte<br />* Timer5 Bug behoben<br />* Lange Dateinamen fÃ¼r Verzeichnisse<br /><br />28.3.<br />* Fix: Nach SkipNext/Prev, geht er nicht zurÃ¼ck in den List<br />* config wieder 2 byte lÃ¤nger, einstellung fuer Sortierung und Anzeige der Liste<br />* Wieder zurÃ¼ck aus dem Urlaub.<br />* viele kleinere Bugfixes, das teil lÃ¤uft bei mir (dos 7, oakcdrom treiber) jetzt echt gut<br />* Eject Taste macht die Lade jetzt auch wieder zu<br />* CD Lade wÃ¤hrend des abspielens Ã¶ffnen sollte nicht mehr zum Absturz fÃ¼hren (1x gestestet...)<br /><br />16.3.<br />* IR Setup kÃ¶nnte gehen jetzt (keine Testplattform, weil pump Ã¼ber dauer des urlaubs verliehen)<br />* noch ein paar kleinere bugs entfernt<br />* Eject + Power Off Taste (ungetestet)<br />* Prozentanzeige (hoffentlich) gefixt.<br />* 'P' weggenommen wenn man keine eigene playlist hatte und play drÃ¼ckte<br />* Ab morgen bin ich erstmal fÃ¼r 10 tage im urlaub. Die Weiterentwicklung setzt also wohl 10 tage aus. Bugreports<br />  sind natÃ¼rlich trotzdem herzlich willkommen.<br />* Wenn man mit Play jetzt ein Verzeichnis auswÃ¤hlt, macht er eine Playlist aus Dateien in diesem Verzeichnis<br />  (ohne Unterverzeichnisse)<br />* Zweimal Stop lÃ¶scht die aktuelle Playlist<br />* Dank an Andreas Radeberger. Mit seiner Betatesting Hilfe, hab ich gestern um 2:00h noch eine lauffÃ¤hige<br />  Version fertig gestellt<br />* Dank auch an alle anderen die munter Beta(bzw.Alpha) Testing machen<br /><br />15.3.<br />* Puuh.. Einlesen von Filelisten klappt unter dos jetzt prima (bei mir zumindest)<br />* Drehrad ist wieder schneller<br />* Alles implementiert, funktioniert wohl auch grÃ¶ÃŸtenteils ;-))<br />* Laufwerksauswahl ist jetzt im HauptmenÃ¼ mit drin.<br />* Ãœber 'enter' kann man songs in eine playlist aufnehmen/lÃ¶schen.<br />  es fehlt noch eine funktion um die aktuelle playlist komplett zu lÃ¶schen!<br />  (vielleicht zweimal stop oder so...)<br />  <br />14.3.<br />* Bis auf Findsong sind alle Funktionen zumindest schon mal implementiert. Es geht jetzt<br />  also hauptsÃ¤chlich noch ums entwanzen<br />* und es lÃ¤uft und lÃ¤uft und lÃ¤uft...<br />* Playlisten gehen jetzt wieder (laden und speichern noch nicht entwanzt)<br />  Mit der 'Enter' Taste kann man in der Filelist ein Song in die Playlist aufnehmen (Program Taste<br />  vom CD-Spieler). Das zeigt der Pumpi durch das P an!<br />* AuÃŸerdem hab ich die MenÃ¼struktur verflacht und plane auch das eigenstÃ¤ndige LaufwerkmenÃ¼ noch raus<br />  zuwerfen<br />* Viele kleinerer Bugfixes...<br />  <br />13.3.<br />* XMS geht (max. 16mb das sind ca. 90000 dateien)<br />* Die Begrenzung fÃ¼r MP3s gilt jetzt nur noch fuer den konventionellen speicher<br />* Funzt eigentlich alles recht gut<br />* Die meisten AbstÃ¼rze sind eigentlich auf zuwenig speicher zurÃ¼ckzufÃ¼hren<br />* bugfixes, bugfixes, bugfixes<br /><br />12.3.<br />* Autostart geht<br />* Shuffle geht<br />* CD einlesen geht auch<br />* Generell: nur kurze dateinamen - lange waren/sind ziemlich buggy und deshalb erstmal drauÃŸen!<br />* NEXT: Laden/Speichern M3U, Findsong (13.3), Repeat<br /><br />10.3.+11.3.<br />* Ich hab erst wiede So Zeit zu programmieren (muÃŸ arbeiten).<br />  Also nur 2 Fragen:<br />  ? geht stereo eigentlich bei euch<br />  ? liest er joliet cds korrekt mit/ohne iso extensions<br />  hab bis so den pump nicht hier...<br />  ? geht der download<br />09.03.00<br />* ER PUMPT WIEDER :-)))<br /><br />08.03.00<br />* Info Taste bei mehrfach drÃ¼cken auch fÃ¼r TonmenÃ¼ zustÃ¤ndig <br />* EinstellungsmenÃ¼ neu angeordnet<br />* Moduswahl entfÃ¤llt...<br />* Tastensetup neu angeordnet<br />* abspielen hat heut zeitweise schon wieder funktioniert<br />* lw (re)scan funzt wieder korrekt<br /><br /><br /></pre>
+<h3>Download</h3>
+<a name="download"></a>
+Download ist unter der files zu finden
+[[!meta date="2010-02-02 11:26:32"]]
+[[!meta date="2010-02-02 11:26:32"]]
