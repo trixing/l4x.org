@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# (c) 2015 Jan Dittmer <jdi@l4x.org>
 
 # -u turns off character translation to allow transmission
 # of gzip compressed content on Windows and OS/2
