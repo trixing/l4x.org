@@ -44,6 +44,8 @@ import os.path
 import stat
 import types
 
+from PIL import Image,ImageOps,ImageDraw
+
 # chunk size for transferring files
 BLOCK_SIZE = 4096
 
@@ -52,9 +54,34 @@ BLOCK_SIZE = 4096
 REDUCE_TO_TEXT_PLAIN = ['text/python', 'text/x-python', 'text/lisp',
                         'text/elisp', 'text/x-diff']
 
+EXTENSIONS = ('pdf', 'jpg', 'png', 'py', 'zip')
+
 def verify_installation(request):
   # no setup necessary
   return True
+
+def resize(name, dst, size=None):
+        if not size:
+            size = (256, 256)
+        try:
+          im = Image.open(name)
+
+          if im.mode != "RGB" and im.mode != "RGBA":
+            im = im.convert("RGB")
+
+          im = ImageOps.fit(im, size, Image.ANTIALIAS, 0.01, (0.5,0.5,))
+          im = ImageOps.autocontrast(im)
+        except IOError:
+            im = Image.new("RGB",size)
+            draw = ImageDraw.Draw(im)
+            draw.line( [0,0,] + size, fill=(255,0,0))
+            draw.line( (0, size[1], size[0], 0), fill=(255,0,0))
+            del draw
+
+        im.save(dst,quality=80)
+        del im
+        return True
+
 
 def cb_handle(args):
   request = args['request']
@@ -64,14 +91,35 @@ def cb_handle(args):
   # does the file exist?
   filename = request.getHttp()['PATH_INFO']
   filename = config['datadir'] + '/' + filename
+  _, ext = os.path.splitext(filename)
+  if ext[1:] not in EXTENSIONS:
+        return
   if not os.path.isfile(filename):
     return
 
+  qs = request.getHttp()['QUERY_STRING']
   # add the headers
   type, encoding = mimetypes.guess_type(filename)
   if type:
     if type in REDUCE_TO_TEXT_PLAIN:
       type = 'text/plain'
+    if type in ('image/png', 'image/jpeg'):
+
+      size = None
+      if 'small' in qs:
+        size = (150, 150)
+      if 'x' in qs:
+        size = [int(x) for x in qs.split('x')]
+      if size:
+        f = '%d_%d_' % size + filename.replace('/', '_')
+        dst = os.path.join(config['imagedir'], f)
+        try:
+            os.makedirs(config['imagedir'])
+        except os.error:
+            pass
+        resize(filename, dst, size)
+        filename = dst
+        type = 'image/png'
     response.addHeader('Content-Type', type)
 
   if encoding:

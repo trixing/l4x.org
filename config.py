@@ -66,6 +66,8 @@ py["blog_icbm"] = '53.5467, 9.9783'
 # Where are this blog's entries kept?
 py["datadir"] = basedir + "/entries"
 
+py["imagedir"] = "/tmp/l4x.org-tmpdir"
+
 py["staticdir"] = basedir + "/static"
 
 # Where are this blog's flavours kept?
@@ -142,7 +144,7 @@ py["plugin_dirs"] = [basedir + "/plugins"]
 # ex: py["load_plugins"] = ["pycalendar", "pyfortune", "pyarchives"]
 py["load_plugins"] = ["pycalendar","pystaticfile","pyarchives",
 		"filekicker","tags","pymetadate","rst","404","bib",
-        "markdown-plugin"]
+        "markdown-plugin", "gallery"]
 
 
 
