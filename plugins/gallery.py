@@ -9,24 +9,23 @@ import re
 
 KEYWORD = r'GALLERY:([^ ]+):'
 
-def cb_filestat(args):
-    print 'filestat', args
-    return args
 
 def cb_postformat(args):
+    request = args['request']
+    config = request.getConfiguration()
     body = args['entry_data']['body']
     m = re.search(KEYWORD, body)
     if not m:
         return args['entry_data']
-    dirnames = m.group(1).split(',')
-    datadir = 'entries/'
-    pics = sum([glob.glob(os.path.join(datadir, dirname))
-                for dirname in dirnames], [])
+    filenames = m.group(1).split(',')
+    datadir = config['datadir']
+    assert datadir[-1] != '/'
+    pics = sum([glob.glob(os.path.join(datadir, filename))
+                for filename in filenames], [])
     content = '\n'.join([
-        '<a href="/%s"><img src="/%s" alt="%s"></a>' % (
-            pic.replace(datadir, ''),
-            pic.replace(datadir, '') + '?small',
-            os.path.basename(pic))
+        '<a href="%(link)s"><img src="%(link)s?small" alt="%(alt)s"></a>' % dict(
+            link=pic.replace(datadir, ''),
+            alt=os.path.basename(pic))
         for pic in pics])
     content = '<p class="gallery">\n%s</p>' % content
     args['entry_data']['body'] = re.sub(KEYWORD, content, body)
