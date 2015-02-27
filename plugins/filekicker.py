@@ -65,6 +65,10 @@ def resize(name, dst, size=None):
             size = (256, 256)
         try:
           im = Image.open(name)
+          if not size[0]:
+              size = (im.size[0] * size[1] / im.size[1], size[1])
+          elif not size[1]:
+              size = (size[0], im.size[1] * size[0] / im.size[0])
 
           if im.mode != "RGB" and im.mode != "RGBA":
             im = im.convert("RGB")
@@ -72,13 +76,13 @@ def resize(name, dst, size=None):
           im = ImageOps.fit(im, size, Image.ANTIALIAS, 0.01, (0.5,0.5,))
           im = ImageOps.autocontrast(im)
         except IOError:
-            im = Image.new("RGB",size)
+            im = Image.new("RGB", size)
             draw = ImageDraw.Draw(im)
             draw.line( [0,0,] + size, fill=(255,0,0))
             draw.line( (0, size[1], size[0], 0), fill=(255,0,0))
             del draw
 
-        im.save(dst,quality=80)
+        im.save(dst, quality=80)
         del im
         return True
 
@@ -109,17 +113,17 @@ def cb_handle(args):
       if 'small' in qs:
         size = (150, 150)
       if 'x' in qs:
-        size = [int(x) for x in qs.split('x')]
+        size = tuple([int(x or 0) for x in qs.split('x')])
       if size:
-        f = '%d_%d_' % size + filename.replace('/', '_')
-        dst = os.path.join(config['imagedir'], f)
+        f = '%d_%d_' % size + filename.replace('/', '_').replace('.', '_')
+        dst = os.path.join(config['imagedir'], f) + '.jpg'
         try:
             os.makedirs(config['imagedir'])
         except os.error:
             pass
         resize(filename, dst, size)
         filename = dst
-        type = 'image/png'
+        type = 'image/jpeg'
     response.addHeader('Content-Type', type)
 
   if encoding:
