@@ -35,6 +35,10 @@ on the previous sheet:
 =INDIRECT("'" & prevSheet(GoogleClock()) & "'!A2")
 ```
 
-Enjoy.
+To be able to copy the formula around and keeping the references, use
+
+```
+=INDIRECT("'" & prevSheet(GoogleClock()) & "'!" & CHAR(64+COLUMN()) & ROW()
+```
 
 [This](http://webapps.stackexchange.com/questions/16009/display-sheet-name-in-google-spreadsheet) was very helpful to get me started.
