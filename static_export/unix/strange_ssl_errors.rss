@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>Strange SSL Errors happening...</title>
+  <link>https://l4x.org/unix/strange_ssl_errors.html</link>
+  <description><![CDATA[
+
+If you ever encounter Firefox saying
+<pre>Error code: ssl_error_rx_record_too_long</pre>
+or Chrome / Chromium / Webkit complaining with
+<pre>Error 107 (net::ERR_SSL_PROTOCOL_ERROR): SSL protocol error.</pre>
+and you just reconfigured your Apache webserver, adding a new
+VirtualHost on port 443, make sure you didn't forget
+<pre>SSLEnable on</pre>
+in the VirtualHost block.
+Otherwise Apache tries to serve non-encrypted content over the SSL-port and web browsers don't
+like that and don't produce helpful error messages. Nothing in the
+Apache log files either...
+
+
+
+]]></description>
+</item>
+
+</channel>
+</rss>

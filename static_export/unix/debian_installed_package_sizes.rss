@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>Debian: List installed packages by size with dpkg</title>
+  <link>https://l4x.org/unix/debian_installed_package_sizes.html</link>
+  <description><![CDATA[
+
+
+<pre>
+$ dpkg-query -W --showformat='${Installed-Size;10}\t${Package}\n' \
+   | sort -k1,1n | tail -n 20 
+</pre>
+
+
+
+]]></description>
+</item>
+
+</channel>
+</rss>

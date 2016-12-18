@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/Bluetooth_Linux_Link_Collection.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/Bluetooth_Linux_Link_Collection.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/Bluetooth_Linux_Link_Collection.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2006-06-30T03:42:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">Bluetooth_Linux_Link_Collection</title>
+<category term="" />
+<id>https://l4x.org/2006/06/29/Bluetooth_Linux_Link_Collection</id>
+<updated>2006-06-30T03:42:00Z</updated>
+<published>2006-06-30T03:42:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/Bluetooth_Linux_Link_Collection.html" />
+<content type="html">
+I&#x27;m trying to get the rfcomm thing going with my new Nokia E60, so that I can go online over it from my laptop via UMTS. With my Nokia 6230 it worked right out of the box. So I did some research but haven&#x27;t found a solution yet. This story is just an anchor for some memorable links.
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;a href=&quot;http:&#x2F;&#x2F;www.teaparty.net&#x2F;technotes&#x2F;blue-gprs.html&quot;&gt;Tom&#x27;s Guide with 6310i&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;a href=&quot;http:&#x2F;&#x2F;www.jpberlin.de&#x2F;j.kowal&#x2F;wiki&#x2F;index.php&#x2F;Vaio_-_Bluetooth&quot;&gt;Bluetooth  on Vaio and explanation for the &quot;Address already in use&quot; error&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;a href=&quot;http:&#x2F;&#x2F;www.integrasoftware.it&#x2F;index.php?option=com_content&amp;task=view&amp;id=84&amp;Itemid=28&quot;&gt;
+Nice KDE centric guide with screenshots&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;a href=&quot;http:&#x2F;&#x2F;www.gentoo.org&#x2F;doc&#x2F;en&#x2F;bluetooth-guide.xml&quot;&gt;Gentoo Guide, very thorough&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;a href=&quot;http:&#x2F;&#x2F;www.mobguru.com&#x2F;Linux+GPRS+Bluetooth.htm&quot;&gt;Yet another nice guide&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+I also found a link to gnubox which sounds very interesting. It allows you to use your LAN to go online from your phone via bluetooth, so just the other way round. That&#x27;s of course not necessary for the E60 because it integrates WLAN. Here is a link to a &lt;a href=&quot;http:&#x2F;&#x2F;www.unix-ag.uni-kl.de&#x2F;~leonard&#x2F;linux-n6600-howto.html&quot;&gt;Nice setup guide with the n6600&lt;&#x2F;a&gt; and &lt;a href=&quot;http:&#x2F;&#x2F;gnubox.dnsalias.org&#x2F;gnubox&#x2F;&quot;&gt;here is all the information you need&lt;&#x2F;a&gt;.
+
+Perhaps these links help someone.
+
+</content>
+</entry>
+</feed>

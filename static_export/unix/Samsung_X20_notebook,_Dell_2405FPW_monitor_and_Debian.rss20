@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Wed, 09 Aug 2006 02:18 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>Samsung_X20_notebook,_Dell_2405FPW_monitor_and_Debian</title>
+   <guid isPermaLink="false">unix/Samsung_X20_notebook,_Dell_2405FPW_monitor_and_Debian</guid>
+   <link>https://l4x.org/unix/Samsung_X20_notebook%2C_Dell_2405FPW_monitor_and_Debian.html</link>
+   <description><![CDATA[
+
+I own a Samsung X20 notebook with integrated i915 video adapter and a Dell 2405FPW monitor with 1920x1200 native resolution. Up until now it only worked with Windows (igck) at it's native resolution. Out of the box X.org from Debian etch (7.0.22)  did not work and insisted to put the monitor at 1600x1200 or even lower resolutions, even after patching the modetable with the 915resolution hack. After googling and finding no really helpful info I finally asked  Alan Hourihane, one of the authors of the intel video driver of X, for help. By using the current Intel video driver from X.org's git, branch modesetting, it now works. Yay to modular X that I did not have to compile the whole server.
+Step by step how to...
+
+Step by step how to (like the example at <a href="http://wiki.freedesktop.org/wiki/UsingGit">wiki.fdo.org</a>):
+<pre>
+$ git clone git://anongit.freedesktop.org/git/xorg/driver/xf86-video-intel
+$ cd xf86-video-intel
+$ git checkout modesetting
+# be sure to have installed xorg-dev
+$ sh autogen.sh
+$ make
+# generates src/.libs/i810_drv.so
+$ cp /usr/lib/xorg/modules/drivers/i810_drv.so \
+    /usr/lib/xorg/modules/drivers/i810_drv.so.backup
+# stop X
+$ cp src/.libs/i810_drv.so /usr/lib/xorg/modules/drivers/i810_drv.so
+# start X
+# finished
+</pre>
+
+Relevant excerpts from /etc/X11/xorg.conf
+<pre>
+Section "Device"
+        Identifier      "Video Extern"
+        Driver          "i810"
+        Option          "PageFlip"      "yes"
+        Option          "MonitorLayout" "CRT,NONE"
+        Option          "CacheLines" "2048"
+        VideoRam        65536
+        Screen 0
+        BusId           "PCI:0:2:0"
+EndSection
+
+Section "Monitor"
+        Identifier      "External Monitor"
+        Option          "DPMS"
+        HorizSync       30-81
+        VertRefresh     43-81
+        Modeline "1920x1200"  154.128 1920 1968 2000 2080  1200 1203 1209 1235 -hsync -vsync
+EndSection
+
+Section "Screen"
+        Identifier      "External Screen"
+        Device          "Video Extern"
+        Monitor         "External Monitor"
+        DefaultDepth    24
+        SubSection "Display"
+                Depth           24
+                Modes   "1920x1200"
+        EndSubSection
+EndSection
+</pre>
+
+Hope it helps anyone.
+
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Wed, 09 Aug 2006 02:18 GMT</pubDate>
+</item>
+</channel>
+</rss>

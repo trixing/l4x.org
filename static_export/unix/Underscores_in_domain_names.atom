@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/Underscores_in_domain_names.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/Underscores_in_domain_names.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/Underscores_in_domain_names.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2006-09-24T03:57:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">Underscores_in_domain_names</title>
+<category term="" />
+<id>https://l4x.org/2006/09/23/Underscores_in_domain_names</id>
+<updated>2006-09-24T03:57:00Z</updated>
+<published>2006-09-24T03:57:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/Underscores_in_domain_names.html" />
+<content type="html">
+&lt;p&gt;
+Without big thinking I set up a test domain for a php based cms containing an underscore (_)
+(www_example.your.domain). The web interface to the domain server accepted the domain name without a problem. Subsequently I tested the cms with Firefox, everything worked fine. Then I wanted to try everything with Internet Explorer (6.0, XP, SP2) and the merchandising system surprisingly did not work. Searching for the error it turned out that logins also did not work. So the session management was quickly blamed. Trying to narrow the error down even a simple
+&lt;pre&gt;
+session_start();
+print_r($_SESSION);
+$_SESSION[&#x27;x&#x27;] = 1;
+&lt;&#x2F;pre&gt;
+did not work as expected. Then I vaguely remembered that IE did not like underscores in cookie names. So I tried www-example.your.domain and bingo.&lt;&#x2F;p&gt;
+&lt;p&gt;Checking &lt;a&gt;RFC1738&lt;&#x2F;a&gt;
+section 3.1 only a-z, 0-9 and - are allowed. So it&#x27;s indeed a broken
+domain name. Strange that the dns system did pass it through though.&lt;&#x2F;p&gt;
+
+
+
+</content>
+</entry>
+</feed>

@@ -1,0 +1,241 @@
+<html>
+<head>
+  <title> 08 09 2009 | Jan's Home</title>
+  <link rel="stylesheet" href="//l4x.org/l4x.css" type="text/css" media="screen" />
+  <meta name="description" content="l4x.org - Jan Dittmer's Homepage" />
+  <meta name="keywords" lang="de" content="elektronik, linux, Jan Dittmer, Jan, Dittmer, software, programmierung, blog, css, html, stylesheet, firefox,ipv6ident, ipv6, ip query firefox, ohg99, otto-hahn gymnasium, atmel, avr" />
+  <meta name="ICBM" content="53.5467, 9.9783"/>
+  <meta name="DC.title" content="l4x.org - Jan Dittmer's Homepage"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+</head>
+<body>
+<div id="header">
+<div class="logo">
+<span style="">l</span>
+<span style="color:#ffe450;">4</span>
+<span style="color:#000000;">x</span>
+<span style="">.</span>
+<span style="">o</span>
+<span style="">r</span>
+<span style="">g</span>
+</div>
+
+<div id="alpha">
+	alpha playground
+</div>
+
+<div id="userinfo">
+        &nbsp;
+</div>
+
+</div> <!-- header -->
+
+<div id="mainnav">
+<ul class="hori">
+<!-- internal links -->
+<li><a href="https://l4x.org">Home</a></li>
+<li><a href="https://l4x.org/projects">Projects</a></li>
+<!-- external links -->
+<!-- broken
+<li><a href="http://home.l4x.org/pics/">Pics</a></li>
+-->
+<li><a href="https://dns.l4x.org">dns.</a></li>
+<li><a href="https://git.l4x.org">git.</a></li>
+<li><a href="https://l4x.org/k/">Kernel-Tests</a></li>
+<li><a href="https://www.trixing.de">Trixing</a></li>
+<li><a href="https://l4x.org/imprint.html">Imprint</a></li>
+</ul>
+
+
+</div>  <!-- mainnav end -->
+
+<div id="content">
+
+<p>08 09 2009</p>
+
+<h2>Tue, 08 Sep 2009</h2>
+<h3><a name="fugawi_trk">Converting the Fugawi binary trk format for GPS waypoints</a></h3>
+<div class="blosxomStory">
+
+<p>There does not seem to be a public specification of the
+binary trk format for GPS waypoints used by
+<a href="http://www.fugawi.com">Fugawi</a> navigation
+products. So I sat down and compared the exported csv
+waypoints with the binary format. Following is the
+specification. All fields are little endian encoded.</p>
+
+<p>The file starts with a 36 byte header of which little
+is known. The first 6 bytes contain the string FUGTRK,
+bytes 7 and 8 are always 0xffff. Bytes 12 and 13 contain
+the number of records in the file.</p>
+
+<p>After the header are the waypoint records, 48 bytes
+each. Each records contains the following fields (again
+little endian!):</p>
+
+
+<table>
+	<tr><th>Offset</th><th>Length</th><th>Data Type</th><th>Contents</th></tr>
+	<tr>
+		<td>0</td>
+		<td>4</td>
+		<td>?</td>
+		<td>?</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>4</td>
+		<td>32-bit float</td>
+		<td>Height</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>4</td>
+		<td>32-bit float</td>
+		<td>Distance to last waypoint</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>4</td>
+		<td>?</td>
+		<td>?</td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>4</td>
+		<td>32-bit float</td>
+		<td>Heading</td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>4</td>
+		<td>?</td>
+		<td>?</td>
+	</tr>
+	<tr>
+		<td>24</td>
+		<td>8</td>
+		<td>64-bit double</td>
+		<td>Latitude WGS84</td>
+	</tr>
+	<tr>
+		<td>32</td>
+		<td>8</td>
+		<td>64-bit double</td>
+		<td>Longitude WGS84</td>
+	</tr>
+	<tr>
+		<td>40</td>
+		<td>8</td>
+		<td>64-bit double</td>
+		<td>Days since 1899-30-12 00:00:00 UTC, fractional part is the time in seconds of the day divided by 86400.</td>
+	</tr>
+
+</table>
+
+In my test files all the missing fields are
+filled with zeros. If anyone has a file without zeros at those
+positions I would be highly interested in adding this information.
+
+<p><a href="/gps/fugawi.c">Here</a> is an example application which
+   can convert trks to gpx or kml format
+<pre>
+gcc fugawi.c -o fugawi
+# output debug info
+./fugawi test.trk
+# output gpx
+./fugawi test.trk gpx
+# output kml
+./fugawi test.trk kml
+</pre>
+Use at your own rist
+</p>
+
+
+
+<p class="posted">
+  posted at 13:12 |
+  path: <a href="https://l4x.org/gps" title="path">/gps</a> |
+  <a href="https://l4x.org/gps/fugawi_trk.html" title="Converting the Fugawi binary trk format for GPS waypoints">permanent link to this entry</a>
+</p>
+</div>
+
+</div>
+
+
+<div id="sidebar">
+<h2>Random Photo</h2>
+<div class="sidebarbox">
+<script><!-- //http://code.google.com/apis/gdata/docs/json.html
+var es = [];
+function r() {
+	var idx = Math.floor(Math.random()*es.length);
+	var m = es[idx]['media$group'];
+	var i = document.getElementById("i");
+	document.getElementById("t").innerHTML = m['media$description']['$t'];
+	i.src = m['media$thumbnail'][0]['url'];
+	setTimeout("r();",10*1000);
+}
+function j(p) {
+	es = p['feed']['entry'];
+	r();
+}
+function picasa() {
+	var url='https://picasaweb.google.com/data/feed/base/user/jan.dittmer?kind=photo&thumbsize=160c&access=public&alt=json&callback=j';
+	var s = document.createElement('script');
+	s.src = url; document.body.appendChild(s);
+}
+window.onload = picasa;
+//--></script>
+<a href="http://picasaweb.google.com/jan.dittmer"> <img id="i"> </a>
+<div id="t"></div>
+</div>
+
+<h2>Archives</h2>
+<div class="sidebarbox">
+	<li><a href="https://l4x.org/2014/Dec">Dec 2014</a></li>
+<li><a href="https://l4x.org/2014/Jun">Jun 2014</a></li>
+<li><a href="https://l4x.org/2014/Mar">Mar 2014</a></li>
+<li><a href="https://l4x.org/2014/Feb">Feb 2014</a></li>
+<li><a href="https://l4x.org/2013/Nov">Nov 2013</a></li>
+<li><a href="https://l4x.org/2013/Oct">Oct 2013</a></li>
+<li><a href="https://l4x.org/2013/Sep">Sep 2013</a></li>
+<li><a href="https://l4x.org/2011/Jan">Jan 2011</a></li>
+<li><a href="https://l4x.org/2010/Nov">Nov 2010</a></li>
+<li><a href="https://l4x.org/2010/Oct">Oct 2010</a></li>
+<li><a href="https://l4x.org/2010/Aug">Aug 2010</a></li>
+<li><a href="https://l4x.org/2010/Feb">Feb 2010</a></li>
+<li><a href="https://l4x.org/2010/Jan">Jan 2010</a></li>
+<li><a href="https://l4x.org/2009/Sep">Sep 2009</a></li>
+<li><a href="https://l4x.org/2008/Nov">Nov 2008</a></li>
+<li><a href="https://l4x.org/2008/Jun">Jun 2008</a></li>
+<li><a href="https://l4x.org/2008/Apr">Apr 2008</a></li>
+<li><a href="https://l4x.org/2007/Sep">Sep 2007</a></li>
+<li><a href="https://l4x.org/2007/Mar">Mar 2007</a></li>
+<li><a href="https://l4x.org/2006/Nov">Nov 2006</a></li>
+<li><a href="https://l4x.org/2006/Sep">Sep 2006</a></li>
+<li><a href="https://l4x.org/2006/Aug">Aug 2006</a></li>
+<li><a href="https://l4x.org/2006/Jun">Jun 2006</a></li>
+<li><a href="https://l4x.org/2005/Jun">Jun 2005</a></li>
+<li><a href="https://l4x.org/2005/May">May 2005</a></li>
+<li><a href="https://l4x.org/2004/May">May 2004</a></li>
+<li><a href="https://l4x.org/2003/Nov">Nov 2003</a></li>
+</div>
+
+<h2>Feed</h2>
+<div class="sidebarbox">
+<a title="RSS" href="https://l4x.org/index.rss20"> RSS </a> /
+<a title="ATOM" href="https://l4x.org/index.atom"> ATOM  </a>
+</div>
+
+</div><!-- sidebar end -->
+
+
+<div id="license">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+</body>
+</html>

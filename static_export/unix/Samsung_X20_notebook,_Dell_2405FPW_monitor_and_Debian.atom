@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/Samsung_X20_notebook,_Dell_2405FPW_monitor_and_Debian.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/Samsung_X20_notebook,_Dell_2405FPW_monitor_and_Debian.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/Samsung_X20_notebook,_Dell_2405FPW_monitor_and_Debian.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2006-08-09T02:18:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">Samsung_X20_notebook,_Dell_2405FPW_monitor_and_Debian</title>
+<category term="" />
+<id>https://l4x.org/2006/08/08/Samsung_X20_notebook,_Dell_2405FPW_monitor_and_Debian</id>
+<updated>2006-08-09T02:18:00Z</updated>
+<published>2006-08-09T02:18:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/Samsung_X20_notebook%2C_Dell_2405FPW_monitor_and_Debian.html" />
+<content type="html">
+I own a Samsung X20 notebook with integrated i915 video adapter and a Dell 2405FPW monitor with 1920x1200 native resolution. Up until now it only worked with Windows (igck) at it&#x27;s native resolution. Out of the box X.org from Debian etch (7.0.22)  did not work and insisted to put the monitor at 1600x1200 or even lower resolutions, even after patching the modetable with the 915resolution hack. After googling and finding no really helpful info I finally asked  Alan Hourihane, one of the authors of the intel video driver of X, for help. By using the current Intel video driver from X.org&#x27;s git, branch modesetting, it now works. Yay to modular X that I did not have to compile the whole server.
+Step by step how to...
+
+Step by step how to (like the example at &lt;a href=&quot;http:&#x2F;&#x2F;wiki.freedesktop.org&#x2F;wiki&#x2F;UsingGit&quot;&gt;wiki.fdo.org&lt;&#x2F;a&gt;):
+&lt;pre&gt;
+$ git clone git:&#x2F;&#x2F;anongit.freedesktop.org&#x2F;git&#x2F;xorg&#x2F;driver&#x2F;xf86-video-intel
+$ cd xf86-video-intel
+$ git checkout modesetting
+# be sure to have installed xorg-dev
+$ sh autogen.sh
+$ make
+# generates src&#x2F;.libs&#x2F;i810_drv.so
+$ cp &#x2F;usr&#x2F;lib&#x2F;xorg&#x2F;modules&#x2F;drivers&#x2F;i810_drv.so \
+    &#x2F;usr&#x2F;lib&#x2F;xorg&#x2F;modules&#x2F;drivers&#x2F;i810_drv.so.backup
+# stop X
+$ cp src&#x2F;.libs&#x2F;i810_drv.so &#x2F;usr&#x2F;lib&#x2F;xorg&#x2F;modules&#x2F;drivers&#x2F;i810_drv.so
+# start X
+# finished
+&lt;&#x2F;pre&gt;
+
+Relevant excerpts from &#x2F;etc&#x2F;X11&#x2F;xorg.conf
+&lt;pre&gt;
+Section &quot;Device&quot;
+        Identifier      &quot;Video Extern&quot;
+        Driver          &quot;i810&quot;
+        Option          &quot;PageFlip&quot;      &quot;yes&quot;
+        Option          &quot;MonitorLayout&quot; &quot;CRT,NONE&quot;
+        Option          &quot;CacheLines&quot; &quot;2048&quot;
+        VideoRam        65536
+        Screen 0
+        BusId           &quot;PCI:0:2:0&quot;
+EndSection
+
+Section &quot;Monitor&quot;
+        Identifier      &quot;External Monitor&quot;
+        Option          &quot;DPMS&quot;
+        HorizSync       30-81
+        VertRefresh     43-81
+        Modeline &quot;1920x1200&quot;  154.128 1920 1968 2000 2080  1200 1203 1209 1235 -hsync -vsync
+EndSection
+
+Section &quot;Screen&quot;
+        Identifier      &quot;External Screen&quot;
+        Device          &quot;Video Extern&quot;
+        Monitor         &quot;External Monitor&quot;
+        DefaultDepth    24
+        SubSection &quot;Display&quot;
+                Depth           24
+                Modes   &quot;1920x1200&quot;
+        EndSubSection
+EndSection
+&lt;&#x2F;pre&gt;
+
+Hope it helps anyone.
+
+</content>
+</entry>
+</feed>

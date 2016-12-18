@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/virtualbox_disk_read_error.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/virtualbox_disk_read_error.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/virtualbox_disk_read_error.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2008-06-20T00:35:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">How to fix &quot;A disk read error occurred&quot; when using a Windows XP image in Virtualbox</title>
+<category term="" />
+<id>https://l4x.org/2008/06/19/virtualbox_disk_read_error</id>
+<updated>2008-06-20T00:35:00Z</updated>
+<published>2008-06-20T00:35:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/virtualbox_disk_read_error.html" />
+<content type="html">
+If you encounter the error &quot;A disk read error occured&quot; when trying&lt;br &#x2F;&gt;to boot Windows XP off a raw disk image using Virtualbox (either directly by using&lt;br &#x2F;&gt;the write-through support or indirectly by booting a 1:1 copy) most&lt;br &#x2F;&gt;probably the BIOS of the original system reported an odd drive geometry&lt;br &#x2F;&gt;(C&#x2F;H&#x2F;S - Cylinders&#x2F;Heads&#x2F;Sectors).&lt;br &#x2F;&gt;&lt;br &#x2F;&gt;To fix this boot the _physical_ system,&lt;br &#x2F;&gt;go to the grub command line, type &#x27;c&#x27; to invoke the command prompt and then execute the command &#x27;geometry (hd0)&#x27;. Write down the cylinders, heads and&lt;br &#x2F;&gt;sectors values reported. Back in your host system, open the .vmdk file using a normal text editor, scroll down to the end of the file and adjust the following lines&lt;br &#x2F;&gt;&lt;pre&gt;&lt;br &#x2F;&gt;ddb.geometry.biosCylinders=&quot;1023&quot;&lt;br &#x2F;&gt;ddb.geometry.biosHeads=&quot;240&quot;&lt;br &#x2F;&gt;ddb.geometry.biosSectors=&quot;63&quot;&lt;br &#x2F;&gt;&lt;&#x2F;pre&gt;.&lt;br &#x2F;&gt;(1023&#x2F;240&#x2F;63 are the values reported by the Lenovo X300 Notebook BIOS).&lt;br &#x2F;&gt;&lt;br &#x2F;&gt;Now try to boot Windows in the virtualized environment. In my case it&lt;br &#x2F;&gt;worked right on the first try. There may also be a Windows tool to get&lt;br &#x2F;&gt;the original drive geometry.&lt;br &#x2F;&gt;&lt;br &#x2F;&gt;The short explanation is, that the boot loader from Windows seems to have&lt;br &#x2F;&gt;hard coded values for the drive geometry
+&lt;
+
+
+</content>
+</entry>
+</feed>

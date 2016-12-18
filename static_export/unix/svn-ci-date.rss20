@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Fri, 08 Jan 2010 17:14 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>How to back date a subversion checkin</title>
+   <guid isPermaLink="false">unix/svn-ci-date</guid>
+   <link>https://l4x.org/unix/svn-ci-date.html</link>
+   <description><![CDATA[
+
+While setting up a new subversion (svn) repository for my
+old blog entries, I wanted to keep the original dates (mtime of
+the file) in the checkin commit (for use with the pyblosxom
+svn plugin). After a quick online research I came up with the
+following script:
+
+<pre>
+#!/bin/sh
+# svn-ci-date.sh
+# Jan Dittmer &lt;jdi@l4x.org&gt; 2008
+# Use at your own risk
+#
+
+D=`ls -l "$1" | cut -f6-7 -d' ' | sed 's/ /T/'`
+D="${D}:00.000000Z"
+echo "Date: $D"
+if ! svn add "$1"; then exit 1; fi
+if ! svn ci -m "Date $D" "$1"; then exit 2; fi
+R=`svn info "$1" | grep "^Revision: " | cut -f2 -d' '`
+echo "Revision: $R"
+if [ "$R" == "" ]; then exit 3; fi
+if ! svn propset --revprop svn:date -r$R "$D"; then exit 4; fi
+</pre>
+
+Please note, that subversion does not do any sanity checking on the
+svn:date property. If svn log reports a 'Bogus Date' afterwards, make
+sure your dates have the format 'YYYY-MM-DDThh:mm:ss.uuuuuuZ'.
+
+
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Fri, 08 Jan 2010 17:14 GMT</pubDate>
+</item>
+</channel>
+</rss>

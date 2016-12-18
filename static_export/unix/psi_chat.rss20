@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Fri, 06 Sep 2013 03:00 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>psi chat client disconnecting all the time?</title>
+   <guid isPermaLink="false">unix/psi_chat</guid>
+   <link>https://l4x.org/unix/psi_chat.html</link>
+   <description><![CDATA[
+
+Try:
+<pre>
+# psi --status=online &gt;/dev/null 2>&1
+*/5 * * * * dbus-send --type=method_call --dest=org.psi-im.Psi /Main org.psi_im.Psi.Main.setStatus string:"online" string:""
+</pre>
+
+
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Fri, 06 Sep 2013 03:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/startssl_haproxy.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/startssl_haproxy.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/startssl_haproxy.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2014-12-03T06:00:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">Installing a StartSSL certificate with haproxy
+</title>
+<category term="" />
+<id>https://l4x.org/2014/12/03/startssl_haproxy</id>
+<updated>2014-12-03T06:00:00Z</updated>
+<published>2014-12-03T06:00:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/startssl_haproxy.html" />
+<content type="html">&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;http:&#x2F;&#x2F;www.haproxy.org&quot;&gt;haproxy&lt;&#x2F;a&gt;
+since version 1.5 supports native SSL.  It uses a
+combined PEM file for encrypting connections.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a class=&quot;reference external&quot; href=&quot;https:&#x2F;&#x2F;www.startssl.com&quot;&gt;StartSSL&lt;&#x2F;a&gt; is
+a popular provider of free SSL certificates (which I happen to use), but only
+provides separate &lt;tt class=&quot;docutils literal&quot;&gt;ssl.crt&lt;&#x2F;tt&gt; and &lt;tt class=&quot;docutils literal&quot;&gt;ssl.key&lt;&#x2F;tt&gt; files.&lt;&#x2F;p&gt;
+&lt;p&gt;To install these with &lt;em&gt;haproxy&lt;&#x2F;em&gt; they need to be combined into a single PEM file.
+It is helpful to also present the intermediary certificates, which can
+be downloaded on the StartSSL website as well. Otherwise clients might not
+recognize the certificate as valid because they cannot verify the certificate
+chain.&lt;&#x2F;p&gt;
+&lt;p&gt;To combine them into one, &lt;tt class=&quot;docutils literal&quot;&gt;cat&lt;&#x2F;tt&gt; works just fine:&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+cat ssl.crt sub.class2.server.ca.pem ca.pem ssl.key &amp;gt; ssl.pem&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Install it in &lt;em&gt;haproxy&lt;&#x2F;em&gt; by adding a bind option to the
+&lt;tt class=&quot;docutils literal&quot;&gt;frontend&lt;&#x2F;tt&gt; block, e.g.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+bind :443 ssl crt &#x2F;etc&#x2F;haproxy&#x2F;ssl.pem
+bind :::443 ssl crt &#x2F;etc&#x2F;haproxy&#x2F;ssl.pem&lt;&#x2F;blockquote&gt;
+&lt;p&gt;This is what I&#x27;m running on &lt;a class=&quot;reference external&quot; href=&quot;https:&#x2F;&#x2F;l4x.org&quot;&gt;l4x.org&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+</content>
+</entry>
+</feed>

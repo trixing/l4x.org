@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Fri, 08 Jan 2010 17:14 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>Controlling the fan speed of a Lenovo X300 under Linux</title>
+   <guid isPermaLink="false">unix/lenovo_x300_fancontrol</guid>
+   <link>https://l4x.org/unix/lenovo_x300_fancontrol.html</link>
+   <description><![CDATA[
+
+The Lenovo X300 has a really annoying fan running with high speeds already at low (40C) CPU temperatures. The lm-sensors package comes with a fancontrol daemon which does user space fan regulation. Just put this in your /etc/fancontrol
+
+<pre>
+INTERVAL=10
+FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp1_input
+FCFANS= hwmon0/device/pwm1=hwmon0/device/fan1_input
+MINTEMP=hwmon0/device/pwm1=60
+MAXTEMP=hwmon0/device/pwm1=70
+MINSTART=hwmon0/device/pwm1=32
+MINSTOP=hwmon0/device/pwm1=32
+MINPWM=hwmon0/device/pwm1=32
+MAXPWM=hwmon0/device/pwm1=128
+</pre>
+
+This will give you 1800 rpm for CPU temperatures > 50C and 5500 rpm (the next level) for temperatures higher 70C. As the fan is barely noticeable at 1800 and 70C is only reached by running two processes with 100% CPU load for more then 5 minutes (even at 30C ambient temperature) this will give you a nearly totally silent laptop :-). A pwm value of 255 sounds like a jet starting (8000 rpm)...
+
+
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Fri, 08 Jan 2010 17:14 GMT</pubDate>
+</item>
+</channel>
+</rss>

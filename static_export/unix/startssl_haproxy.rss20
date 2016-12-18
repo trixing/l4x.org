@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Wed, 03 Dec 2014 06:00 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>Installing a StartSSL certificate with haproxy
+</title>
+   <guid isPermaLink="false">unix/startssl_haproxy</guid>
+   <link>https://l4x.org/unix/startssl_haproxy.html</link>
+   <description><![CDATA[
+<p><a class="reference external" href="http://www.haproxy.org">haproxy</a>
+since version 1.5 supports native SSL.  It uses a
+combined PEM file for encrypting connections.</p>
+<p><a class="reference external" href="https://www.startssl.com">StartSSL</a> is
+a popular provider of free SSL certificates (which I happen to use), but only
+provides separate <tt class="docutils literal">ssl.crt</tt> and <tt class="docutils literal">ssl.key</tt> files.</p>
+<p>To install these with <em>haproxy</em> they need to be combined into a single PEM file.
+It is helpful to also present the intermediary certificates, which can
+be downloaded on the StartSSL website as well. Otherwise clients might not
+recognize the certificate as valid because they cannot verify the certificate
+chain.</p>
+<p>To combine them into one, <tt class="docutils literal">cat</tt> works just fine:</p>
+<blockquote>
+cat ssl.crt sub.class2.server.ca.pem ca.pem ssl.key &gt; ssl.pem</blockquote>
+<p>Install it in <em>haproxy</em> by adding a bind option to the
+<tt class="docutils literal">frontend</tt> block, e.g.</p>
+<blockquote>
+bind :443 ssl crt /etc/haproxy/ssl.pem
+bind :::443 ssl crt /etc/haproxy/ssl.pem</blockquote>
+<p>This is what I'm running on <a class="reference external" href="https://l4x.org">l4x.org</a>.</p>
+<p></p>
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Wed, 03 Dec 2014 06:00 GMT</pubDate>
+</item>
+</channel>
+</rss>

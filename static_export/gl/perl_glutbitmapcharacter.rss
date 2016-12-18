@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>How to use glutBitmapCharacter in Perl</title>
+  <link>https://l4x.org/gl/perl_glutbitmapcharacter.html</link>
+  <description><![CDATA[
+
+<p>glutBitmapCharacter is an OpenGL function used to 
+   display a single character. The C function signature looks
+   like this:
+   <pre>void glutBitmapCharacter(void *font, int character);</pre>
+   Seeing this, it should be clear that you have to call it from perl with a 
+   <em>numeric</em> character value:
+   <pre>glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24,ord('J'));</pre>
+   The trick is to use <em>ord</em> to convert the character to the character
+   code. Don't try without or you'll just the the background color and no
+   error message, I just lost nearly an hour over this simple thing, which is
+   not so obvious if you just look at C examples. But 'J' are two very
+   different things in Perl and C.
+</p>
+
+
+
+]]></description>
+</item>
+
+</channel>
+</rss>

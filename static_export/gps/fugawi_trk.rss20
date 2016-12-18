@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Tue, 08 Sep 2009 17:12 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>Converting the Fugawi binary trk format for GPS waypoints</title>
+   <guid isPermaLink="false">gps/fugawi_trk</guid>
+   <link>https://l4x.org/gps/fugawi_trk.html</link>
+   <description><![CDATA[
+
+<p>There does not seem to be a public specification of the
+binary trk format for GPS waypoints used by
+<a href="http://www.fugawi.com">Fugawi</a> navigation
+products. So I sat down and compared the exported csv
+waypoints with the binary format. Following is the
+specification. All fields are little endian encoded.</p>
+
+<p>The file starts with a 36 byte header of which little
+is known. The first 6 bytes contain the string FUGTRK,
+bytes 7 and 8 are always 0xffff. Bytes 12 and 13 contain
+the number of records in the file.</p>
+
+<p>After the header are the waypoint records, 48 bytes
+each. Each records contains the following fields (again
+little endian!):</p>
+
+
+<table>
+	<tr><th>Offset</th><th>Length</th><th>Data Type</th><th>Contents</th></tr>
+	<tr>
+		<td>0</td>
+		<td>4</td>
+		<td>?</td>
+		<td>?</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>4</td>
+		<td>32-bit float</td>
+		<td>Height</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>4</td>
+		<td>32-bit float</td>
+		<td>Distance to last waypoint</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>4</td>
+		<td>?</td>
+		<td>?</td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>4</td>
+		<td>32-bit float</td>
+		<td>Heading</td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>4</td>
+		<td>?</td>
+		<td>?</td>
+	</tr>
+	<tr>
+		<td>24</td>
+		<td>8</td>
+		<td>64-bit double</td>
+		<td>Latitude WGS84</td>
+	</tr>
+	<tr>
+		<td>32</td>
+		<td>8</td>
+		<td>64-bit double</td>
+		<td>Longitude WGS84</td>
+	</tr>
+	<tr>
+		<td>40</td>
+		<td>8</td>
+		<td>64-bit double</td>
+		<td>Days since 1899-30-12 00:00:00 UTC, fractional part is the time in seconds of the day divided by 86400.</td>
+	</tr>
+
+</table>
+
+In my test files all the missing fields are
+filled with zeros. If anyone has a file without zeros at those
+positions I would be highly interested in adding this information.
+
+<p><a href="/gps/fugawi.c">Here</a> is an example application which
+   can convert trks to gpx or kml format
+<pre>
+gcc fugawi.c -o fugawi
+# output debug info
+./fugawi test.trk
+# output gpx
+./fugawi test.trk gpx
+# output kml
+./fugawi test.trk kml
+</pre>
+Use at your own rist
+</p>
+
+
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Tue, 08 Sep 2009 17:12 GMT</pubDate>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/XFree_Xinerama_extension_hack.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/XFree_Xinerama_extension_hack.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/XFree_Xinerama_extension_hack.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2003-11-11T00:21:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">XFree_Xinerama_extension_hack</title>
+<category term="" />
+<id>https://l4x.org/2003/11/10/XFree_Xinerama_extension_hack</id>
+<updated>2003-11-11T00:21:00Z</updated>
+<published>2003-11-11T00:21:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/XFree_Xinerama_extension_hack.html" />
+<content type="html">
+
+When installing my 3 monitor setup I quickly discovered that the native xfree xinerama extension is incompatible with nvidia twinview. You can only have either one. This leads to applications believing I have one 2560x1024 screen and one 1280x1024 screen. If I maximized windows they would always span two screens.
+Therefore I spent a long time searching for a solution on google, but unfortunately there are a) few people with 3 monitors and b) no one had solved this. So I decided to patch the X server.
+What I&#x27;ve done so far is to take programs&#x2F;Xserver&#x2F;Xext&#x2F;panoramiX.c and fake the reply like this:
+
+
+When installing my 3 monitor setup I quickly discovered that the native xfree xinerama extension is incompatible with nvidia twinview. You can only have either one. This leads to applications believing I have one 2560x1024 screen and one 1280x1024 screen. If I maximized windows they would always span two screens.
+Therefore I spent a long time searching for a solution on google, but unfortunately there are a) few people with 3 monitors and b) no one had solved this. So I decided to patch the X server.
+What I&#x27;ve done so far is to take programs&#x2F;Xserver&#x2F;Xext&#x2F;panoramiX.c and fake the reply like this:&lt;br &#x2F;&gt;&lt;pre&gt;--- x&#x2F;xc&#x2F;programs&#x2F;Xserver&#x2F;Xext&#x2F;panoramiX.c      2003-11-10 19:21:43.000000000 +0100&lt;br &#x2F;&gt;+++ x2&#x2F;xc&#x2F;programs&#x2F;Xserver&#x2F;Xext&#x2F;panoramiX.c     2004-02-15 11:39:15.000000000 +0100&lt;br &#x2F;&gt;@@ -1026,7 +1030,8 @@&lt;br &#x2F;&gt; &lt;br &#x2F;&gt;     rep.type = X_Reply;&lt;br &#x2F;&gt;     rep.sequenceNumber = client-&amp;gt;sequence;&lt;br &#x2F;&gt;-    rep.number = (noPanoramiXExtension) ? 0 : PanoramiXNumScreens;&lt;br &#x2F;&gt;+   &#x2F;* rep.number = (noPanoramiXExtension) ? 0 : PanoramiXNumScreens; *&#x2F;&lt;br &#x2F;&gt;+    rep.number = (noPanoramiXExtension) ? 0 : (PanoramiXNumScreens + 1);&lt;br &#x2F;&gt;     rep.length = rep.number * sz_XineramaScreenInfo &amp;gt;&amp;gt; 2;&lt;br &#x2F;&gt;     if (client-&amp;gt;swapped) {&lt;br &#x2F;&gt;        register int n;&lt;br &#x2F;&gt;@@ -1040,11 +1045,17 @@&lt;br &#x2F;&gt;        xXineramaScreenInfo scratch;&lt;br &#x2F;&gt;&lt;br &#x2F;&gt;        int i;&lt;br &#x2F;&gt; &lt;br &#x2F;&gt;-       for(i = 0; i &amp;lt; PanoramiXNumScreens; i++) {&lt;br &#x2F;&gt;+       for(i = 0; i &amp;lt; (PanoramiXNumScreens + 1); i++) {&lt;br &#x2F;&gt;+               &#x2F;*&lt;br &#x2F;&gt;            scratch.x_org  = panoramiXdataPtr[i].x;&lt;br &#x2F;&gt;            scratch.y_org  = panoramiXdataPtr[i].y;&lt;br &#x2F;&gt;            scratch.width  = panoramiXdataPtr[i].width;&lt;br &#x2F;&gt;            scratch.height = panoramiXdataPtr[i].height;&lt;br &#x2F;&gt;+           *&#x2F;&lt;br &#x2F;&gt;+           scratch.x_org  = 1280 * i;&lt;br &#x2F;&gt;+           scratch.y_org  = 0;&lt;br &#x2F;&gt;+           scratch.width  = 1280;&lt;br &#x2F;&gt;+           scratch.height = 1024;&lt;br &#x2F;&gt;&lt;br &#x2F;&gt;&lt;&#x2F;pre&gt;
+This is pretty specific, so I&#x27;m currently working my way through the code to make this configurable in the XF86Config-4.&lt;br &#x2F;&gt;
+&lt;br &#x2F;&gt;
+I also wrote a small test program:&lt;br &#x2F;&gt;&lt;pre&gt;#include &amp;lt;&lt;span class=&quot;start-tag&quot;&gt;stdio&lt;&#x2F;span&gt;&lt;span class=&quot;attribute-name&quot;&gt;.h&lt;&#x2F;span&gt;&amp;gt;&lt;br &#x2F;&gt;#include &amp;lt;&lt;span class=&quot;start-tag&quot;&gt;X11&lt;&#x2F;span&gt;&lt;span class=&quot;attribute-name&quot;&gt;&#x2F;extensions&#x2F;Xinerama.h&lt;&#x2F;span&gt;&amp;gt;&lt;br &#x2F;&gt;&lt;br &#x2F;&gt;int main() {&lt;br &#x2F;&gt;        XineramaScreenInfo *xsi;&lt;br &#x2F;&gt;        Display *dpy;&lt;br &#x2F;&gt;        int number;&lt;br &#x2F;&gt;        int i;&lt;br &#x2F;&gt;        dpy = XOpenDisplay(NULL);&lt;br &#x2F;&gt;        xsi = XineramaQueryScreens(dpy, &amp;amp;&lt;span class=&quot;entity&quot;&gt;number&lt;&#x2F;span&gt;);&lt;br &#x2F;&gt;        for(i = 0; i &amp;lt; number; i++) {&lt;br &#x2F;&gt;                printf(&amp;quot;%d %d %d %d %d &lt;br &#x2F;&gt;&amp;quot;, xsi[i].screen_number, xsi[i].x_org, &lt;br &#x2F;&gt;                        xsi[i].y_org, xsi[i].width, xsi[i].height);&lt;br &#x2F;&gt;        }&lt;br &#x2F;&gt;        return 1;&lt;br &#x2F;&gt;}&lt;&#x2F;pre&gt;
+Output before the patch: (Columns are screennum x y width height):
+&lt;pre&gt;0 0 0 2560 1024&lt;br &#x2F;&gt;2 2560 0 1280 1024&lt;br &#x2F;&gt;&lt;&#x2F;pre&gt;
+Output after the patch:&lt;pre&gt;0 0 0 1280 1024 &lt;br &#x2F;&gt;
+1 1280 0 1280 1024 &lt;br &#x2F;&gt;
+2 2560 0 1280 1024 &lt;br &#x2F;&gt;
+&lt;&#x2F;pre&gt;
+Pretty successful.
+
+</content>
+</entry>
+</feed>

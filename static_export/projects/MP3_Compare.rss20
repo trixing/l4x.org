@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Fri, 08 Jan 2010 17:14 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>MP3_Compare</title>
+   <guid isPermaLink="false">projects/MP3_Compare</guid>
+   <link>https://l4x.org/projects/MP3_Compare.html</link>
+   <description><![CDATA[
+
+Today I found some old forgotten pages about MP3 Compare and as a nice excercise to get used to this system I added them. You can find them under the articles section. Up to now I'm quite impressed with drupal.<br />MP3_Compare_Help
+
+<h1><div align="center">Help for MP3-Compare</div></h1>
+<h3>Possible options on the 'Your MP3s' and 'Your friends MP3s' tabs:</h3>
+[image:514]<br />
+<br />
+You may enter a path, or select one with the browse button. The program searches for a file
+  called 'mp3list.mcz' in the specified directory. On success this file is loaded, otherwise
+  the specified directory is scanned. If 'Scan subdirs' is checked, it will scan recursively.
+  If 'Add to list' is selected, the files found (file or scan) are added to the current list, so
+  you're able to read a whole disc-set in one file.<br />
+The button 'FN2TAG' converts the filename(s) of the selected mp3(s) to tags, if they're after
+  the scheme 'artist - title'!
+
+<h1><div align="center">Help for MP3-Compare</div></h1>
+<h3>Possible options on the 'Your MP3s' and 'Your friends MP3s' tabs:</h3>
+[image:514]<br />
+<br />
+You may enter a path, or select one with the browse button. The program searches for a file
+  called 'mp3list.mcz' in the specified directory. On success this file is loaded, otherwise
+  the specified directory is scanned. If 'Scan subdirs' is checked, it will scan recursively.
+  If 'Add to list' is selected, the files found (file or scan) are added to the current list, so
+  you're able to read a whole disc-set in one file.<br />
+The button 'FN2TAG' converts the filename(s) of the selected mp3(s) to tags, if they're after
+  the scheme 'artist - title'!<br />
+The button 'TAG2FN' does exactly the reverse thing, renaming the file to 'Artist - Title'.<br />
+Pressing 'Scan' will rescan the currently selected directory.<br />
+With 'Search' you can easily search for an mp3 in your mp3list. simply enter the search terms.
+mp3compare will do an 'AND' search.<br />
+
+With 'Load list' you can load a list of mp3s which will replace the current list, if 'Add to list'
+isn't checked.<br />
+With 'Save list as' you can save your list to another than the default name. You can also
+select 'HTML' as output format, and a html list of your mp3s will be created.<br />
+'Mail list' simply mails the list to a friend. Be sure to check the eMail - Setting on the config tab!<br />
+'Cancel' will cancel every running operation - Scanning / Comparing<br />
+'Play' plays the currently selected mp3 using Winamp,
+'Enqueue' will enqueue it, and 'E and P' will add it to the current playlist and plays it afterwards.<br />
+'Exit' will exit the program - but who wants to?? ;-)
+<h3>Possibilities in the context menu:</h3>
+<table>
+<tbody><tr>
+<td>[image:517]</td>
+<td valign="top">
+
+'Refresh Item': Refreshes currently selected items<br />
+'Remove Item after file operation': Will remove the selected items after successful move/copy/del<br />
+'Delete, Move, Copy': Does exactly the same as in the windows explorer<br />
+'Fileinfo/Edit Tag': Let you edit the ID3 tag for one or more (!!) files, see special section at the bottom of the page<br />
+'Normalize Tag': oNe tOtAly UNConvEntional WRITTEN tag -&gt; One Totaly Unconvential Written Tag for Artist and Title
+'Play','Enqueue','Enqueue and Play': The same as the tool buttons<br />
+</td>
+</tr>
+</tbody></table>
+<h3>Possible options on the result tab:</h3>
+[image:515]<br />
+<br />
+
+Just self explaining i think. Go will check for duplicates in either your or your friends MP3s. Load/Save
+loads a list of results, for example to send your friend a list, he could give you as a gift ;-)<br />
+<h3>Possibilities in the context menu:</h3>
+<table>
+<tbody><tr>
+<td>[image:516]</td>
+<td valign="top">
+'Remove pair from list': Simply removes a pair from the list, no physical harm is done!<br />
+'Remove pair after file operation': Will remove the selected pairs after successful move/copy/del<br />
+'Delete, Move, Copy': Does exactly the same as in the windows explorer for either the TOP files or 
+the BOTTOM files<br />
+'Select all': Selects all files<br />
+'Play': Plays either TOP or BOTTOM file<br />
+
+</td>
+</tr>
+</tbody></table>
+<h3>Possible options on the config tab:</h3>
+[image:520]<br />
+<br />
+<b>General</b><br />
+'Auto save mp3list after scan' will automatically save the list in the default file 'mp3list.mcz'<br />
+'Hitbarrier': Selects above which percentage two files are suspected to be the same (for compare/duplicates)<br />
+'Show complete path in results': Toggles path in results<br />
+'Path to winamp': Your winamp executable. Auto-Determined on first start-up<br />
+
+<b>HTML-List Creation</b><br />
+'Relative path to CSS': Points to a Cascading Style Sheet for formatting the list.<br />
+'Insert links to files': MP3s will be linked so click in webbrowser opens it<br />
+'Relative path': ...<br />
+<b>E-Mail Setting</b><br />
+For sending your list to a friend, common settings, self-explaining i think<br />
+<b>Warn user before</b><br />
+Self-explaining, isn't it?<br />
+<h3>What you can do in the edit-tag box:</h3>
+
+<table width="100%">
+<tbody><tr>
+<td width="50%" align="center">[image:518]</td>
+<td width="50%" align="center">[image:519]</td>
+</tr>
+<tr>
+<td>
+<div align="center">Edit a single file</div>
+Simply edit the attributes of the file, ok writes them to disk.
+</td>
+<td>
+<div align="center">Edit multiple files at a time</div>
+Edits the attributes of multiple files simultaneously. When the checkbox to the right is checked,
+the attributes will be written. So you can give all your files the same comment or equalize the
+artist names.
+</td>
+</tr>
+
+</tbody></table>
+
+
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Fri, 08 Jan 2010 17:14 GMT</pubDate>
+</item>
+</channel>
+</rss>

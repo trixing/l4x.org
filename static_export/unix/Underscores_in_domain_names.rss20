@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0" 
+   xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" 
+   xmlns:html="http://www.w3.org/1999/html" 
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+   xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+<channel>
+   <title>l4x.org</title>
+   <link>https://l4x.org</link>
+   <description>Home of Jan Dittmer</description>
+   <language>en</language>
+   <copyright>Copyright 2008-2015 Jan Dittmer</copyright>
+   <ttl>60</ttl>
+   <pubDate>Sun, 24 Sep 2006 03:57 GMT</pubDate>
+   <managingEditor>jdi@l4x.org</managingEditor>
+   <generator>PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3</generator>
+<item>
+   <title>Underscores_in_domain_names</title>
+   <guid isPermaLink="false">unix/Underscores_in_domain_names</guid>
+   <link>https://l4x.org/unix/Underscores_in_domain_names.html</link>
+   <description><![CDATA[
+
+<p>
+Without big thinking I set up a test domain for a php based cms containing an underscore (_)
+(www_example.your.domain). The web interface to the domain server accepted the domain name without a problem. Subsequently I tested the cms with Firefox, everything worked fine. Then I wanted to try everything with Internet Explorer (6.0, XP, SP2) and the merchandising system surprisingly did not work. Searching for the error it turned out that logins also did not work. So the session management was quickly blamed. Trying to narrow the error down even a simple
+<pre>
+session_start();
+print_r($_SESSION);
+$_SESSION['x'] = 1;
+</pre>
+did not work as expected. Then I vaguely remembered that IE did not like underscores in cookie names. So I tried www-example.your.domain and bingo.</p>
+<p>Checking <a>RFC1738</a>
+section 3.1 only a-z, 0-9 and - are allowed. So it's indeed a broken
+domain name. Strange that the dns system did pass it through though.</p>
+
+
+
+
+]]></description>
+   <category domain="https://l4x.org"></category>
+   <pubDate>Sun, 24 Sep 2006 03:57 GMT</pubDate>
+</item>
+</channel>
+</rss>

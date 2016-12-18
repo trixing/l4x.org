@@ -1,0 +1,159 @@
+<html>
+<head>
+  <title>  03 2014 | Jan's Home</title>
+  <link rel="stylesheet" href="//l4x.org/l4x.css" type="text/css" media="screen" />
+  <meta name="description" content="l4x.org - Jan Dittmer's Homepage" />
+  <meta name="keywords" lang="de" content="elektronik, linux, Jan Dittmer, Jan, Dittmer, software, programmierung, blog, css, html, stylesheet, firefox,ipv6ident, ipv6, ip query firefox, ohg99, otto-hahn gymnasium, atmel, avr" />
+  <meta name="ICBM" content="53.5467, 9.9783"/>
+  <meta name="DC.title" content="l4x.org - Jan Dittmer's Homepage"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  </style>
+</head>
+<body>
+<div id="header">
+<div class="logo">
+<span style="">l</span>
+<span style="color:#ffe450;">4</span>
+<span style="color:#000000;">x</span>
+<span style="">.</span>
+<span style="">o</span>
+<span style="">r</span>
+<span style="">g</span>
+</div>
+
+<div id="alpha">
+	alpha playground
+</div>
+
+<div id="userinfo">
+        &nbsp;
+</div>
+
+</div> <!-- header -->
+
+<div id="mainnav">
+<ul class="hori">
+<!-- internal links -->
+<li><a href="https://l4x.org">Home</a></li>
+<li><a href="https://l4x.org/projects">Projects</a></li>
+<!-- external links -->
+<!-- broken
+<li><a href="http://home.l4x.org/pics/">Pics</a></li>
+-->
+<li><a href="https://dns.l4x.org">dns.</a></li>
+<li><a href="https://git.l4x.org">git.</a></li>
+<li><a href="https://l4x.org/k/">Kernel-Tests</a></li>
+<li><a href="https://www.trixing.de">Trixing</a></li>
+<li><a href="https://l4x.org/imprint.html">Imprint</a></li>
+</ul>
+
+
+</div>  <!-- mainnav end -->
+
+<div id="content">
+
+<p> 03 2014</p>
+
+<h2>Sun, 16 Mar 2014</h2>
+<h3><a name="libvirt_attach_disk">Attaching a new disk to a running VM
+</a></h3>
+<div class="blosxomStory">
+<p>Just for my own memory (attaching 400G to vm named <tt class="docutils literal">git0</tt>):</p>
+<pre class="literal-block">
+pool-define-as hdd --type dir --target /mnt/libvirt
+pool-start hdd
+pool-autostart hdd
+vol-create-as hdd gitdisk 400G
+attach-disk git0 /mnt/libvirt/gitdisk vdb --persistent --driver qemu --subdriver qcow2
+</pre>
+<p>The <tt class="docutils literal">driver</tt> and <tt class="docutils literal">subdriver</tt> options are essential.
+Otherwise the disk is attached as <tt class="docutils literal">raw</tt> disk and the guest
+will only see several kilobytes (kb) of disk not the full 400G.</p>
+<p></p>
+
+<p class="posted">
+  posted at 23:00 |
+  path: <a href="https://l4x.org/vm" title="path">/vm</a> |
+  <a href="https://l4x.org/vm/libvirt_attach_disk.html" title="Attaching a new disk to a running VM
+">permanent link to this entry</a>
+</p>
+</div>
+
+</div>
+
+
+<div id="sidebar">
+<h2>Random Photo</h2>
+<div class="sidebarbox">
+<script><!-- //http://code.google.com/apis/gdata/docs/json.html
+var es = [];
+function r() {
+	var idx = Math.floor(Math.random()*es.length);
+	var m = es[idx]['media$group'];
+	var i = document.getElementById("i");
+	document.getElementById("t").innerHTML = m['media$description']['$t'];
+	i.src = m['media$thumbnail'][0]['url'];
+	setTimeout("r();",10*1000);
+}
+function j(p) {
+	es = p['feed']['entry'];
+	r();
+}
+function picasa() {
+	var url='https://picasaweb.google.com/data/feed/base/user/jan.dittmer?kind=photo&thumbsize=160c&access=public&alt=json&callback=j';
+	var s = document.createElement('script');
+	s.src = url; document.body.appendChild(s);
+}
+window.onload = picasa;
+//--></script>
+<a href="http://picasaweb.google.com/jan.dittmer"> <img id="i"> </a>
+<div id="t"></div>
+</div>
+
+<h2>Archives</h2>
+<div class="sidebarbox">
+	<li><a href="https://l4x.org/2014/Dec">Dec 2014</a></li>
+<li><a href="https://l4x.org/2014/Jun">Jun 2014</a></li>
+<li><a href="https://l4x.org/2014/Mar">Mar 2014</a></li>
+<li><a href="https://l4x.org/2014/Feb">Feb 2014</a></li>
+<li><a href="https://l4x.org/2013/Nov">Nov 2013</a></li>
+<li><a href="https://l4x.org/2013/Oct">Oct 2013</a></li>
+<li><a href="https://l4x.org/2013/Sep">Sep 2013</a></li>
+<li><a href="https://l4x.org/2011/Jan">Jan 2011</a></li>
+<li><a href="https://l4x.org/2010/Nov">Nov 2010</a></li>
+<li><a href="https://l4x.org/2010/Oct">Oct 2010</a></li>
+<li><a href="https://l4x.org/2010/Aug">Aug 2010</a></li>
+<li><a href="https://l4x.org/2010/Feb">Feb 2010</a></li>
+<li><a href="https://l4x.org/2010/Jan">Jan 2010</a></li>
+<li><a href="https://l4x.org/2009/Sep">Sep 2009</a></li>
+<li><a href="https://l4x.org/2008/Nov">Nov 2008</a></li>
+<li><a href="https://l4x.org/2008/Jun">Jun 2008</a></li>
+<li><a href="https://l4x.org/2008/Apr">Apr 2008</a></li>
+<li><a href="https://l4x.org/2007/Sep">Sep 2007</a></li>
+<li><a href="https://l4x.org/2007/Mar">Mar 2007</a></li>
+<li><a href="https://l4x.org/2006/Nov">Nov 2006</a></li>
+<li><a href="https://l4x.org/2006/Sep">Sep 2006</a></li>
+<li><a href="https://l4x.org/2006/Aug">Aug 2006</a></li>
+<li><a href="https://l4x.org/2006/Jun">Jun 2006</a></li>
+<li><a href="https://l4x.org/2005/Jun">Jun 2005</a></li>
+<li><a href="https://l4x.org/2005/May">May 2005</a></li>
+<li><a href="https://l4x.org/2004/May">May 2004</a></li>
+<li><a href="https://l4x.org/2003/Nov">Nov 2003</a></li>
+</div>
+
+<h2>Feed</h2>
+<div class="sidebarbox">
+<a title="RSS" href="https://l4x.org/index.rss20"> RSS </a> /
+<a title="ATOM" href="https://l4x.org/index.atom"> ATOM  </a>
+</div>
+
+</div><!-- sidebar end -->
+
+
+<div id="license">
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+</div>
+</body>
+</html>

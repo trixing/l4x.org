@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/ssh_group_readable_identity.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/ssh_group_readable_identity.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/ssh_group_readable_identity.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2013-11-17T21:00:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">ssh: Group readable id_rsa identity file
+</title>
+<category term="" />
+<id>https://l4x.org/2013/11/17/ssh_group_readable_identity</id>
+<updated>2013-11-17T21:00:00Z</updated>
+<published>2013-11-17T21:00:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/ssh_group_readable_identity.html" />
+<content type="html">&lt;p&gt;Let&#x27;s say you want to use a system wide ssh identity file to access (or push)
+shared server state from different users on the system.&lt;&#x2F;p&gt;
+&lt;p&gt;The naive way is to &lt;tt class=&quot;docutils literal&quot;&gt;chmod 0640 &#x2F;system&#x2F;wide&#x2F;id_rsa&lt;&#x2F;tt&gt;.  Only ssh will complain
+loudly about that without a way to disable the error:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;
+&amp;#64;         WARNING: UNPROTECTED PRIVATE KEY FILE!          &amp;#64;
+&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;&amp;#64;
+Permissions 0640 for &#x27;&#x2F;etc&#x2F;git-readonly&#x2F;id_rsa&#x27; are too open.
+It is recommended that your private key files are NOT accessible by others.
+This private key will be ignored.
+bad permissions: ignore key: &#x2F;etc&#x2F;git-readonly&#x2F;id_rsa
+&lt;&#x2F;pre&gt;
+&lt;p&gt;The usual answer to this is that you do not do that.  Use different keys per
+user or host based checking or an ssh-agent.&lt;&#x2F;p&gt;
+&lt;p&gt;But lets say you really want to.  A viable workaround is to make a copy of the
+file with the right permissions:&lt;&#x2F;p&gt;
+&lt;p&gt;My ssh wrapper for this is:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;literal-block&quot;&gt;
+RSA=$HOME&#x2F;.ssh&#x2F;git-readonly-id_rsa
+cat &#x2F;etc&#x2F;git-readonly&#x2F;id_rsa &amp;gt; &amp;quot;$RSA&amp;quot;
+chmod 0600 &amp;quot;$RSA&amp;quot;
+exec ssh  -o UserKnownHostsFile=&#x2F;etc&#x2F;git-readonly&#x2F;known_hosts -o StrictHostKeyChecking=yes -i &amp;quot;$RSA&amp;quot; &amp;quot;$&amp;#64;&amp;quot;
+&lt;&#x2F;pre&gt;
+&lt;p&gt;Use at your own risk!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;&#x2F;p&gt;
+</content>
+</entry>
+</feed>

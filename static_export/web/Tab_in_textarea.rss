@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>Tab_in_textarea</title>
+  <link>https://l4x.org/web/Tab_in_textarea.html</link>
+  <description><![CDATA[
+
+Ever being annoyed by not being able to type TABs (keycode 9) when editing textareas in your favorite cms? Well after some research, I seem to have found a solution - at least for the more popular browsers. If anyone has an idea how to get the current cursor position in khtml based browsers (safari, konqueror), please drop me a note.
+The below was tested on the Mozilla platform and with Internet Explorer 6.0. 
+...
+
+
+Ever being annoyed by not being able to type TABs (keycode 9) when editing textareas in your favorite cms? Well after some research, I seem to have found a solution - at least for the more popular browsers. If anyone has an idea how to get the current cursor position in khtml based browsers (safari, konqueror), please drop me a note.
+The below was tested on the Mozilla platform and with Internet Explorer 6.0. 
+...
+<!--break-->
+<pre>
+&lt;script type="text/javascript"&gt;
+&lt;!--
+
+/**
+* Insert a tab at the current text position in a textarea
+* Jan Dittmer, jdittmer@ppp0.net, 2005-05-28
+* Inspired by http://www.forum4designers.com/archive22-2004-9-127735.html
+* Tested on: 
+*   Mozilla Firefox 1.0.3 (Linux)
+*   Mozilla 1.7.8 (Linux)
+*   Epiphany 1.4.8 (Linux)
+*   Internet Explorer 6.0 (Linux)
+* Does not work in: 
+*   Konqueror (no tab inserted, but focus stays)
+*/
+function insertTab(event,obj) {
+	var tabKeyCode = 9;
+	if (event.which) // mozilla
+		var keycode = event.which;
+	else // ie
+		var keycode = event.keyCode;
+	if (keycode == tabKeyCode) {
+		if (event.type == "keydown") {
+			if (obj.setSelectionRange) {
+				// mozilla
+				var s = obj.selectionStart;
+				var e = obj.selectionEnd;
+				obj.value = obj.value.substring(0, s) + 
+					"\t" + obj.value.substr(e);
+				obj.setSelectionRange(s + 1, s + 1);
+				obj.focus();
+			} else if (obj.createTextRange) {
+				// ie
+				document.selection.createRange().text="\t"
+				obj.onblur = function() { this.focus(); this.onblur = null; };
+			} else {
+				// unsupported browsers
+			}
+		}
+		if (event.returnValue) // ie ?
+			event.returnValue = false;
+		if (event.preventDefault) // dom
+			event.preventDefault();
+		return false; // should work in all browsers
+	}
+	return true;
+}
+
+//--&gt;
+&lt;/script&gt;
+&lt;textarea onkeydown="return insertTab(event,this);" 
+	  onkeyup="return insertTab(event,this);" 
+	  onkeypress="return insertTab(event,this);" 
+	  rows="30" cols="80"&gt;
+&lt;/textarea&gt;
+</pre>
+Demo:<br>
+<script type="text/javascript">
+<!--
+
+/**
+* Insert a tab at the current text position in a textarea
+* jdittmer@ppp0.net, 2005-05-28
+* Inspired by http://www.forum4designers.com/archive22-2004-9-127735.html
+* Tested on: 
+*   Mozilla Firefox 1.0.3 (Linux)
+*   Mozilla 1.7.8 (Linux)
+*   Epiphany 1.4.8 (Linux)
+*   Internet Explorer 6.0 (Linux)
+* Does not work in: 
+*   Konqueror (no tab inserted, but focus stays)
+*/
+function insertTab(event,obj) {
+	var tabKeyCode = 9;
+	if (event.which) // mozilla
+		var keycode = event.which;
+	else // ie
+		var keycode = event.keyCode;
+	if (keycode == tabKeyCode) {
+		if (event.type == "keydown") {
+			if (obj.setSelectionRange) {
+				// mozilla
+				var s = obj.selectionStart;
+				var e = obj.selectionEnd;
+				obj.value = obj.value.substring(0, s) + 
+					"\t" + obj.value.substr(e);
+				obj.setSelectionRange(s + 1, s + 1);
+				obj.focus();
+			} else if (obj.createTextRange) {
+				// ie
+				document.selection.createRange().text="\t"
+				obj.onblur = function() { this.focus(); this.onblur = null; };
+			} else {
+				// unsupported browsers
+			}
+		}
+		if (event.returnValue) // ie ?
+			event.returnValue = false;
+		if (event.preventDefault) // dom
+			event.preventDefault();
+		return false; // should work in all browsers
+	}
+	return true;
+}
+
+//-->
+</script>
+<textarea onkeydown="return insertTab(event,this);" 
+	  onkeyup="return insertTab(event,this);" 
+	  onkeypress="return insertTab(event,this);" 
+	  rows="10" cols="30">
+Some
+	Text where you
+can press 	tab	 everywhere
+and stay at the correct position.
+</textarea>
+
+]]></description>
+</item>
+
+</channel>
+</rss>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/truncate_files.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/truncate_files.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/truncate_files.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2008-04-10T00:35:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">How to truncate a file the UNIX way</title>
+<category term="" />
+<id>https://l4x.org/2008/04/09/truncate_files</id>
+<updated>2008-04-10T00:35:00Z</updated>
+<published>2008-04-10T00:35:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/truncate_files.html" />
+<content type="html">
+Astonishingly a search for &#x27;truncate unix utility&#x27; doesn&#x27;t turn up anything useful&lt;br &#x2F;&gt;apart from hundreds of references to the ftruncate man page.&lt;br &#x2F;&gt;This is how I did it:&lt;br &#x2F;&gt;&lt;pre&gt;&lt;br &#x2F;&gt;dd of=destfile bs=1 seek=newsize count=1 &amp;lt;&#x2F;dev&#x2F;null&lt;br &#x2F;&gt;&lt;&#x2F;pre&gt;&lt;br &#x2F;&gt;where newsize can be 1k, 400G, whatever and destfile is obviously the&lt;br &#x2F;&gt;destination filename.
+
+
+
+</content>
+</entry>
+</feed>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>Installing a StartSSL certificate with haproxy
+</title>
+  <link>https://l4x.org/unix/startssl_haproxy.html</link>
+  <description><![CDATA[
+<p><a class="reference external" href="http://www.haproxy.org">haproxy</a>
+since version 1.5 supports native SSL.  It uses a
+combined PEM file for encrypting connections.</p>
+<p><a class="reference external" href="https://www.startssl.com">StartSSL</a> is
+a popular provider of free SSL certificates (which I happen to use), but only
+provides separate <tt class="docutils literal">ssl.crt</tt> and <tt class="docutils literal">ssl.key</tt> files.</p>
+<p>To install these with <em>haproxy</em> they need to be combined into a single PEM file.
+It is helpful to also present the intermediary certificates, which can
+be downloaded on the StartSSL website as well. Otherwise clients might not
+recognize the certificate as valid because they cannot verify the certificate
+chain.</p>
+<p>To combine them into one, <tt class="docutils literal">cat</tt> works just fine:</p>
+<blockquote>
+cat ssl.crt sub.class2.server.ca.pem ca.pem ssl.key &gt; ssl.pem</blockquote>
+<p>Install it in <em>haproxy</em> by adding a bind option to the
+<tt class="docutils literal">frontend</tt> block, e.g.</p>
+<blockquote>
+bind :443 ssl crt /etc/haproxy/ssl.pem
+bind :::443 ssl crt /etc/haproxy/ssl.pem</blockquote>
+<p>This is what I'm running on <a class="reference external" href="https://l4x.org">l4x.org</a>.</p>
+<p></p>
+
+]]></description>
+</item>
+
+</channel>
+</rss>

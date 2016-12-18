@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/projects/showip.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/projects/showip.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/projects/showip.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2008-11-26T02:32:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">ShowIP:_Firefox_extension_to_show_and_query_the_current_IP_Address_in_the_statusbar</title>
+<category term="" />
+<id>https://l4x.org/2008/11/25/showip</id>
+<updated>2008-11-26T02:32:00Z</updated>
+<published>2008-11-26T02:32:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/projects/showip.html" />
+<content type="html">
+ShowIP is a Mozilla Firefox extension which shows the IP Address of the current page in the browser&#x27;s status bar and allows queries to different databases about it when you right click on it. The IP is colored red for an IPv4 address and green for an IPv6 address (hence the name). Since v0.7.8 these colors can be changed in the preferences menu.
+With a left click one can get information about the hostname of the current page. These queries are fully customizable in the settings dialog. You can also run custom local programs.
+The extension can be downloaded here: &lt;a href=&quot;http:&#x2F;&#x2F;l4x.org&#x2F;site&#x2F;files&#x2F;showip_0_8_03.xpi&quot;&gt;ShowIP 0.8.03&lt;&#x2F;a&gt;
+
+
+&lt;h4&gt;Screenshots&lt;&#x2F;h4&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;addons.mozilla.org&#x2F;extensions&#x2F;moreinfo.php?id=590&quot;&gt;Listing at addons.mozilla.org&lt;&#x2F;a&gt;
+&lt;h4&gt;Development&lt;&#x2F;h4&gt;
+&lt;a href=&quot;http:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;firefox-showip&quot;&gt;Google Code Project&lt;&#x2F;a&gt;
+&lt;h4&gt;ToDo&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;polish design&lt;&#x2F;li&gt;
+&lt;li&gt;provide save&#x2F;load facility, update via web&lt;&#x2F;li&gt;
+&lt;li&gt;spoofing detection&lt;&#x2F;li&gt;
+&lt;li&gt;Option to switch on&#x2F;off Tools menu&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h4&gt;Changes&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;v0.1: Initial release&lt;&#x2F;li&gt;
+&lt;li&gt;v0.2: corrected a caching bug&lt;&#x2F;li&gt;
+&lt;li&gt;v0.3: added context menus: 
+   right click: lookup whois&#x2F;netcraft by ip,
+   left click:lookup whois&#x2F;netcraft by name
+   fixed uninstall bug&lt;&#x2F;li&gt;
+&lt;li&gt;v0.4: added copy to clipboard to context menu&lt;&#x2F;li&gt;
+&lt;li&gt;v0.5: added settings dialog to configure the query strings
+   experimental support for mozilla 1.0-1.8&lt;&#x2F;li&gt;
+&lt;li&gt;v0.6: added more defaults urls (from www.dnsstuff.com and www.ipv6tools.com)&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7: bumped version number to 0.7
+    some internal renaming of functions
+      &lt;b&gt;NOTE: you have to remove and re-install the extension due to this&lt;&#x2F;b&gt;
+    show local ip as tooltip
+    add configure menu in tools only for mozilla
+&lt;li&gt;v0.7.3: fixed javascript error preventing conquery to work together
+&lt;li&gt;v0.7.4: renamed lots of code to not pollute the global namespace (thanks to Michael Keppler for bringing that to my attention). The extension should now be javascript.options.strict clean.
+            fixed update url
+            fixed delete error in preferences dialog
+with ipv6ident under some circumstances&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.5: renamed extension to ShowIP, due to it&#x27;s more general nature
+            added seperator for local IPs.&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.6: initial release on &lt;a href=&quot;https:&#x2F;&#x2F;addons.update.mozilla.org&#x2F;extensions&#x2F;moreinfo.php?application=firefox&amp;category=Popular&amp;numpg=10&amp;id=590&quot;&gt;mozilla.org&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.7: fixed popup&#x2F;context menu not showing problem&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.8: &lt;ul&gt;
+&lt;li&gt;Tested with Deer Park
+&lt;li&gt;Added support to change colors in the preferences menu
+&lt;li&gt;Added support to run programs from the context menu
+    (URLs starting with ! are assumed to be local programs and
+     executes with ip address and hostname as parameter)
+&lt;li&gt;Integrated the preferences link in the tools menu
+&lt;li&gt;Fixed left&#x2F;right click mix-up
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.9: Prevent lookup of chrome:&#x2F;&#x2F; and file:&#x2F;&#x2F; urls, thanks to Alexander Hass for reporting that.&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.10:&lt;ul&gt;
+  &lt;li&gt;Added ### to pass full url to destination site&lt;&#x2F;li&gt;
+  &lt;li&gt;Added src=ShowIP to dnsstuff and ipv6tools urls&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.11:&lt;ul&gt;
+  &lt;li&gt;Bumped maxVersion&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;v0.7.12 ( == 0.7.99.12 on a.m.o):&lt;ul&gt;
+  &lt;li&gt;Fixed maxVersion again&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;v0.8.00:&lt;ul&gt;
+&lt;li&gt; converted code to use javascript objects and the showip prefix where necessary- show all IPs for a domain&lt;&#x2F;li&gt;
+&lt;li&gt;new #D# tag for just the sld and tld part of the domain&lt;&#x2F;li&gt;
+&lt;li&gt; full localization support&lt;&#x2F;li&gt;
+&lt;li&gt; fix network.dns.disableIPv6 = true config case&lt;&#x2F;li&gt;
+&lt;li&gt; support to display IP as octal&#x2F;hex&#x2F;dword&#x2F;decimal in the statusbar&lt;&#x2F;li&gt;
+&lt;li&gt; calling local processes with the ip&#x2F;hostname as the only parameter instead
+of hostname&#x2F;ip pair. Please change your rules accordingly. This is consistent
+with the url scheme now. If you need to pass more parameters to the process,
+use a shell wrapper.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;v0.8.01:&lt;ul&gt;
+  &lt;li&gt;Fix compatibility with Firefox 1.0.*&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;v0.8.02:&lt;ul&gt;
+  &lt;li&gt;Fix exception when localhost is not resolvable&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;v0.8.03:&lt;ul&gt;
+  &lt;li&gt;Fix locale registration with mozilla suite&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+
+&lt;h4&gt;Helpful resources for developing this extension:&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt; Brian Duffs&#x27; weblog entry for getting started
+  http:&#x2F;&#x2F;www.orablogs.com&#x2F;duffblog&#x2F;archives&#x2F;000536.html
+&lt;li&gt; DNS Resolver from FlagFox:
+  http:&#x2F;&#x2F;www.extensionsmirror.nl&#x2F;index.php?showtopic=1941&amp;hl=ip+address
+&lt;li&gt; GUID Generator
+  http:&#x2F;&#x2F;www.hoskinson.net&#x2F;webservices&#x2F;guidgeneratorclient.aspx
+&lt;li&gt; Dynamic Overlays
+  http:&#x2F;&#x2F;www.xulplanet.com&#x2F;tutorials&#x2F;xultu&#x2F;crosspov.html
+&lt;li&gt; statusbarpanel on xulplanet
+  http:&#x2F;&#x2F;www.xulplanet.com&#x2F;references&#x2F;elemref&#x2F;ref_statusbarpanel.html#class_statusbarpanel-iconic
+&lt;li&gt; mozilla tinderstatus tutorial
+  http:&#x2F;&#x2F;www.mozilla.org&#x2F;docs&#x2F;tutorials&#x2F;tinderstatus&#x2F;
+&lt;li&gt; dev extension help
+  http:&#x2F;&#x2F;kb.mozillazine.org&#x2F;Dev_:_Extensions_:_Example_Code_:_On_Tab_Load
+&lt;li&gt; mozillazine help forum
+  http:&#x2F;&#x2F;forums.mozillazine.org&#x2F;viewforum.php?f=19
+&lt;&#x2F;ul&gt;
+
+
+</content>
+</entry>
+</feed>

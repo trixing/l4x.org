@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>ssh: Group readable id_rsa identity file
+</title>
+  <link>https://l4x.org/unix/ssh_group_readable_identity.html</link>
+  <description><![CDATA[
+<p>Let's say you want to use a system wide ssh identity file to access (or push)
+shared server state from different users on the system.</p>
+<p>The naive way is to <tt class="docutils literal">chmod 0640 /system/wide/id_rsa</tt>.  Only ssh will complain
+loudly about that without a way to disable the error:</p>
+<pre class="literal-block">
+&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;
+&#64;         WARNING: UNPROTECTED PRIVATE KEY FILE!          &#64;
+&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;&#64;
+Permissions 0640 for '/etc/git-readonly/id_rsa' are too open.
+It is recommended that your private key files are NOT accessible by others.
+This private key will be ignored.
+bad permissions: ignore key: /etc/git-readonly/id_rsa
+</pre>
+<p>The usual answer to this is that you do not do that.  Use different keys per
+user or host based checking or an ssh-agent.</p>
+<p>But lets say you really want to.  A viable workaround is to make a copy of the
+file with the right permissions:</p>
+<p>My ssh wrapper for this is:</p>
+<pre class="literal-block">
+RSA=$HOME/.ssh/git-readonly-id_rsa
+cat /etc/git-readonly/id_rsa &gt; &quot;$RSA&quot;
+chmod 0600 &quot;$RSA&quot;
+exec ssh  -o UserKnownHostsFile=/etc/git-readonly/known_hosts -o StrictHostKeyChecking=yes -i &quot;$RSA&quot; &quot;$&#64;&quot;
+</pre>
+<p>Use at your own risk!</p>
+<p></p>
+
+]]></description>
+</item>
+
+</channel>
+</rss>

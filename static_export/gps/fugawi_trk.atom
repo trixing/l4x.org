@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/gps/fugawi_trk.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/gps/fugawi_trk.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/gps/fugawi_trk.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2009-09-08T17:12:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">Converting the Fugawi binary trk format for GPS waypoints</title>
+<category term="" />
+<id>https://l4x.org/2009/09/08/fugawi_trk</id>
+<updated>2009-09-08T17:12:00Z</updated>
+<published>2009-09-08T17:12:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/gps/fugawi_trk.html" />
+<content type="html">
+&lt;p&gt;There does not seem to be a public specification of the
+binary trk format for GPS waypoints used by
+&lt;a href=&quot;http:&#x2F;&#x2F;www.fugawi.com&quot;&gt;Fugawi&lt;&#x2F;a&gt; navigation
+products. So I sat down and compared the exported csv
+waypoints with the binary format. Following is the
+specification. All fields are little endian encoded.&lt;&#x2F;p&gt;
+
+&lt;p&gt;The file starts with a 36 byte header of which little
+is known. The first 6 bytes contain the string FUGTRK,
+bytes 7 and 8 are always 0xffff. Bytes 12 and 13 contain
+the number of records in the file.&lt;&#x2F;p&gt;
+
+&lt;p&gt;After the header are the waypoint records, 48 bytes
+each. Each records contains the following fields (again
+little endian!):&lt;&#x2F;p&gt;
+
+
+&lt;table&gt;
+	&lt;tr&gt;&lt;th&gt;Offset&lt;&#x2F;th&gt;&lt;th&gt;Length&lt;&#x2F;th&gt;&lt;th&gt;Data Type&lt;&#x2F;th&gt;&lt;th&gt;Contents&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;0&lt;&#x2F;td&gt;
+		&lt;td&gt;4&lt;&#x2F;td&gt;
+		&lt;td&gt;?&lt;&#x2F;td&gt;
+		&lt;td&gt;?&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;4&lt;&#x2F;td&gt;
+		&lt;td&gt;4&lt;&#x2F;td&gt;
+		&lt;td&gt;32-bit float&lt;&#x2F;td&gt;
+		&lt;td&gt;Height&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;8&lt;&#x2F;td&gt;
+		&lt;td&gt;4&lt;&#x2F;td&gt;
+		&lt;td&gt;32-bit float&lt;&#x2F;td&gt;
+		&lt;td&gt;Distance to last waypoint&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;12&lt;&#x2F;td&gt;
+		&lt;td&gt;4&lt;&#x2F;td&gt;
+		&lt;td&gt;?&lt;&#x2F;td&gt;
+		&lt;td&gt;?&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;16&lt;&#x2F;td&gt;
+		&lt;td&gt;4&lt;&#x2F;td&gt;
+		&lt;td&gt;32-bit float&lt;&#x2F;td&gt;
+		&lt;td&gt;Heading&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;20&lt;&#x2F;td&gt;
+		&lt;td&gt;4&lt;&#x2F;td&gt;
+		&lt;td&gt;?&lt;&#x2F;td&gt;
+		&lt;td&gt;?&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;24&lt;&#x2F;td&gt;
+		&lt;td&gt;8&lt;&#x2F;td&gt;
+		&lt;td&gt;64-bit double&lt;&#x2F;td&gt;
+		&lt;td&gt;Latitude WGS84&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;32&lt;&#x2F;td&gt;
+		&lt;td&gt;8&lt;&#x2F;td&gt;
+		&lt;td&gt;64-bit double&lt;&#x2F;td&gt;
+		&lt;td&gt;Longitude WGS84&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+	&lt;tr&gt;
+		&lt;td&gt;40&lt;&#x2F;td&gt;
+		&lt;td&gt;8&lt;&#x2F;td&gt;
+		&lt;td&gt;64-bit double&lt;&#x2F;td&gt;
+		&lt;td&gt;Days since 1899-30-12 00:00:00 UTC, fractional part is the time in seconds of the day divided by 86400.&lt;&#x2F;td&gt;
+	&lt;&#x2F;tr&gt;
+
+&lt;&#x2F;table&gt;
+
+In my test files all the missing fields are
+filled with zeros. If anyone has a file without zeros at those
+positions I would be highly interested in adding this information.
+
+&lt;p&gt;&lt;a href=&quot;&#x2F;gps&#x2F;fugawi.c&quot;&gt;Here&lt;&#x2F;a&gt; is an example application which
+   can convert trks to gpx or kml format
+&lt;pre&gt;
+gcc fugawi.c -o fugawi
+# output debug info
+.&#x2F;fugawi test.trk
+# output gpx
+.&#x2F;fugawi test.trk gpx
+# output kml
+.&#x2F;fugawi test.trk kml
+&lt;&#x2F;pre&gt;
+Use at your own rist
+&lt;&#x2F;p&gt;
+
+
+</content>
+</entry>
+</feed>

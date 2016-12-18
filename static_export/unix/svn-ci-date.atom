@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/unix/svn-ci-date.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/unix/svn-ci-date.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/unix/svn-ci-date.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2010-01-08T17:14:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">How to back date a subversion checkin</title>
+<category term="" />
+<id>https://l4x.org/2010/01/08/svn-ci-date</id>
+<updated>2010-01-08T17:14:00Z</updated>
+<published>2010-01-08T17:14:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/unix/svn-ci-date.html" />
+<content type="html">
+While setting up a new subversion (svn) repository for my
+old blog entries, I wanted to keep the original dates (mtime of
+the file) in the checkin commit (for use with the pyblosxom
+svn plugin). After a quick online research I came up with the
+following script:
+
+&lt;pre&gt;
+#!&#x2F;bin&#x2F;sh
+# svn-ci-date.sh
+# Jan Dittmer &amp;lt;jdi@l4x.org&amp;gt; 2008
+# Use at your own risk
+#
+
+D=`ls -l &quot;$1&quot; | cut -f6-7 -d&#x27; &#x27; | sed &#x27;s&#x2F; &#x2F;T&#x2F;&#x27;`
+D=&quot;${D}:00.000000Z&quot;
+echo &quot;Date: $D&quot;
+if ! svn add &quot;$1&quot;; then exit 1; fi
+if ! svn ci -m &quot;Date $D&quot; &quot;$1&quot;; then exit 2; fi
+R=`svn info &quot;$1&quot; | grep &quot;^Revision: &quot; | cut -f2 -d&#x27; &#x27;`
+echo &quot;Revision: $R&quot;
+if [ &quot;$R&quot; == &quot;&quot; ]; then exit 3; fi
+if ! svn propset --revprop svn:date -r$R &quot;$D&quot;; then exit 4; fi
+&lt;&#x2F;pre&gt;
+
+Please note, that subversion does not do any sanity checking on the
+svn:date property. If svn log reports a &#x27;Bogus Date&#x27; afterwards, make
+sure your dates have the format &#x27;YYYY-MM-DDThh:mm:ss.uuuuuuZ&#x27;.
+
+
+</content>
+</entry>
+</feed>

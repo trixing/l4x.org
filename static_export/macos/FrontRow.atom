@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/macos/FrontRow.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/macos/FrontRow.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/macos/FrontRow.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2007-03-08T03:42:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">FrontRow</title>
+<category term="" />
+<id>https://l4x.org/2007/03/07/FrontRow</id>
+<updated>2007-03-08T03:42:00Z</updated>
+<published>2007-03-08T03:42:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/macos/FrontRow.html" />
+<content type="html">
+Helpful MacOS Trivia
+
+[http:&#x2F;&#x2F;www.macosxhints.com&#x2F;article.php?story=20070125092851828]
+As joshewah pointed out, if you have the proper codecs installed in quicktime, and have the video files under movies, the files will be seen and playable under front row without having to create any reference files. Now with this in mind, if you have your video files elsewhere, on an external drive, or network mounts(!!), simply create aliases to any network mounted video folders and put the aliases into the movies folder. As long as the drives or shares are mounted, the aliases (treated by front row gui as folders) will show all the video files on the remote drives!
+Enjoy!
+
+
+</content>
+</entry>
+</feed>

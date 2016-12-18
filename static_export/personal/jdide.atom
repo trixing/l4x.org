@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">l4x.org</title>
+<subtitle type="html"><![CDATA[
+Home of Jan Dittmer
+]]></subtitle>
+<id>https://l4x.org/personal/jdide.atom</id>
+<link rel="alternate" type="text/html" href="https://l4x.org" />
+<link rel="self" type="application/atom+xml" href="https://l4x.org/personal/jdide.atom" />
+
+
+<author>
+<name>jdi et al.</name>
+<uri>https://l4x.org/personal/jdide.atom</uri>
+<email>jdi@l4x.org</email>
+</author>
+<rights>Copyright 2008-2015 Jan Dittmer</rights>
+<generator uri="http://pyblosxom.sourceforge.net/" version="1.5.3">
+PyBlosxom http://pyblosxom.sourceforge.net/ 1.5.3
+</generator>
+
+<updated>2010-08-01T16:00:00Z</updated>
+<!-- icon?  logo?  -->
+
+<entry>
+<title type="html">Personal bibliography</title>
+<category term="" />
+<id>https://l4x.org/2010/08/01/jdide</id>
+<updated>2010-08-01T16:00:00Z</updated>
+<published>2010-08-01T16:00:00Z</published>
+<link rel="alternate" type="text/html" href="https://l4x.org/personal/jdide.html" />
+<content type="html">&lt;ul class=&quot;bibtex&quot;&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Untersuchungen zur Messung elektrischer Spannungen mit mikroelektromechanischen Bauelementen&lt;&#x2F;span&gt;     &lt;a class=&quot;url&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.shaker.de&#x2F;de&#x2F;content&#x2F;catalogue&#x2F;index.asp?ISBN=978-3-8322-9134-1&quot;&gt;URL&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;A miniaturized RMS voltage sensor based on a torsional actuator in bulk silicon technology&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Proceedings of Micro- and Nano Engineering&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;769-770&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2007&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=A+miniaturized+RMS+voltage+sensor+based+on+a+torsional+actuator+in+bulk+silicon+technology&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Aufbau und Charakterisierung eines mikro-elektromechanischen Torsionssensors fšr die Hochfrequenzspannungsmessung&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Mikrosystemtechnik Kongress 2007&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;775-758&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2007&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Aufbau+und+Charakterisierung+eines+mikro-elektromechanischen+Torsionssensors+f%A8r+die+Hochfrequenzspannungsmessung&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Specialized hybrid batch fabrication process for MEMS RF voltage sensors&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Device and Process Technologies for Microelectronics, MEMS, Photonics, and Nanotechnology IV&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;680000P-1-680000P-9&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2007&lt;&#x2F;span&gt;    &lt;a class=&quot;doi&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;dx.doi.org&#x2F;10.1117&#x2F;12.759425&quot;&gt;DOI&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Micro-Electromechanical devices for RF voltage metrology applications&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;11th International Conference on New Actuators&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;322-324&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Micro-Electromechanical+devices+for+RF+voltage+metrology+applications&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;A torsional sensor for MEMS-based RMS voltage measurements&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Advances in Radio Science&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;6&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;31-34&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=A+torsional+sensor+for+MEMS-based+RMS+voltage+measurements&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Optimization of spring geometries for the suspension of an electrostatic RMS voltage sensor&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;The International Conference on MEMS and Nanotechnology&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;177-180&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Optimization+of+spring+geometries+for+the+suspension+of+an+electrostatic+RMS+voltage+sensor&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;A miniaturized RMS voltage sensor based on a torsional actuator in bulk silicon technology&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Microelectronic Engineering&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;85&lt;&#x2F;span&gt;    &lt;span class=&quot;number&quot;&gt;5&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;1437-1439&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=A+miniaturized+RMS+voltage+sensor+based+on+a+torsional+actuator+in+bulk+silicon+technology&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Micro-fabricated electrostatic voltage sensor with variable parallel-plate capacitor&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;34th International Conference on Micro &amp; Nano Engineering&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;354&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Micro-fabricated+electrostatic+voltage+sensor+with+variable+parallel-plate+capacitor&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Modeling and design of electrostatic voltage sensors based on micromachined torsional actuators&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;NSTI Nanotech&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;3&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;521-524&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Modeling+and+design+of+electrostatic+voltage+sensors+based+on+micromachined+torsional+actuators&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Electrostatic voltage sensors based on micro machined rotational actuators: Modeling and design&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Sensors and Transducers&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;3&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;80-86&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Electrostatic+voltage+sensors+based+on+micro+machined+rotational+actuators%3A+Modeling+and+design&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, A. Brennecke, L. Hecht, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Electrostatic voltage sensor based on a high aspect-ratio copper actuator leviating over a small air gap&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Mikrosystemtechnik Kongress&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;385-388&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Electrostatic+voltage+sensor+based+on+a+high+aspect-ratio+copper+actuator+leviating+over+a+small+air+gap&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, L. Hecht, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Surface micro-machined RMS and DC voltage sensor with a copper actuator using an intermediate sacrificial layer&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Micro and Nano Engineering 2009&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;P-MEMS-22&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Surface+micro-machined+RMS+and+DC+voltage+sensor+with+a+copper+actuator+using+an+intermediate+sacrificial+layer&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Reliability study of micromechanical actuators for electrostatic RMS voltage measurements using bulk-silicon technology&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Reliability, Packaging, Testing, and Characterization of MEMS&#x2F;MOEMS and Nanodevices VIII&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;7206&lt;&#x2F;span&gt;    &lt;span class=&quot;number&quot;&gt;1&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;72060C&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;url&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;link.aip.org&#x2F;link&#x2F;?PSI&#x2F;7206&#x2F;72060C&#x2F;1&quot;&gt;URL&lt;&#x2F;a&gt;    &lt;a class=&quot;doi&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;dx.doi.org&#x2F;10.1117&#x2F;12.809464&quot;&gt;DOI&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;DC and RMS voltage measurements with microelectromechanical sensors based on silicon actuators&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Eurosensors XXIII, Book of Abstracts&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;416&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=DC+and+RMS+voltage+measurements+with+microelectromechanical+sensors+based+on+silicon+actuators&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;DC and RMS voltage measurements with microelectromechanical sensors based on silicon actuators&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Procedia Chemistry&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;1&lt;&#x2F;span&gt;    &lt;span class=&quot;number&quot;&gt;1&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;1399-1402&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;url&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.sciencedirect.com&#x2F;science?_ob=ArticleURL&amp;_udi=B983C-4X49BRW-DG&quot;&gt;URL&lt;&#x2F;a&gt;    &lt;a class=&quot;doi&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;dx.doi.org&#x2F;10.1016&#x2F;j.proche.2009.07.349&quot;&gt;DOI&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Capacitive parallel-plate voltage sensor made of electroplated copper on a sacrificial layer&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;8th International Workshop on High Aspect Ratio Micro Structure Technology&lt;&#x2F;span&gt;     &lt;span class=&quot;pages&quot;&gt;189-190&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Capacitive+parallel-plate+voltage+sensor+made+of+electroplated+copper+on+a+sacrificial+layer&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Micro-fabricated electrostatic voltage sensor with a thin bulk-silicon device layer&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;NSTI Nanotech 2009&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;1&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;472-475&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Micro-fabricated+electrostatic+voltage+sensor+with+a+thin+bulk-silicon+device+layer&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Evaluation of microelectromechanical devices for DC and RF voltage measurements&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;IEEE Sensors Proceedings&lt;&#x2F;span&gt;     &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Evaluation+of+microelectromechanical+devices+for+DC+and+RF+voltage+measurements&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Micro-fabricated rotational actuators for electrical voltage measurements employing the principle of electrostatic force&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Sensors and Transducers&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;7&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;25-33&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;url&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;www.sensorsportal.com&#x2F;HTML&#x2F;DIGEST&#x2F;P_SI_81.htm&quot;&gt;URL&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Untersuchungen von MEMS zur HF-Spannungsmessung&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Aktuelle Fortschritte von Kalibrierverfahren im Nieder- und Hochfrequenzbereich 2010&lt;&#x2F;span&gt;     &lt;span class=&quot;year&quot;&gt;2010&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Untersuchungen+von+MEMS+zur+HF-Spannungsmessung&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+J. Dittmer, L. Hecht, R. Judaschke, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;RMS voltage sensor based on a variable parallel-plate capacitor made of electroplated copper&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Microsystem Technologies&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;16&lt;&#x2F;span&gt;    &lt;span class=&quot;number&quot;&gt;8&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;1665-1671&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2010&lt;&#x2F;span&gt;    &lt;a class=&quot;doi&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;dx.doi.org&#x2F;10.1007&#x2F;s00542-009-1016-x&quot;&gt;DOI&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+D. Gloss, J. Dittmer, H. Herwig&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;A systematic approach to wall roughness effects in laminarchannel flows: experiments and modelling&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Proceedings of the Sixth International Conference on Nanochannels, Microchannels and Minichannels&lt;&#x2F;span&gt;     &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=A+systematic+approach+to+wall+roughness+effects+in+laminarchannel+flows%3A+experiments+and+modelling&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+A. Khiat, F. Lamarque, C. Prelle, A. Phataralaoha, J. Dittmer, T. Krah, M. Leester-Schädel, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Silicon grating microfabrication for long-range displacement sensor&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;Journal of Micro&#x2F;Nanolithography, MEMS and MOEMS&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;7&lt;&#x2F;span&gt;    &lt;span class=&quot;number&quot;&gt;2&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;021007&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2008&lt;&#x2F;span&gt;    &lt;a class=&quot;url&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;link.aip.org&#x2F;link&#x2F;?JMM&#x2F;7&#x2F;021007&#x2F;1&quot;&gt;URL&lt;&#x2F;a&gt;    &lt;a class=&quot;doi&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;dx.doi.org&#x2F;10.1117&#x2F;1.2909459&quot;&gt;DOI&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+  &lt;li&gt;
+    &lt;span class=&quot;author&quot;&gt;
+A. Waldschik, M. Feldmann, J. Dittmer, S. Büttgenbach&lt;&#x2F;span&gt; 
+    &lt;span class=&quot;title&quot;&gt;Contactless micro position and angular sensor device based on micro structured polymer magnets&lt;&#x2F;span&gt;     &lt;span class=&quot;journal&quot;&gt;NSTI Nanotech&lt;&#x2F;span&gt;     &lt;span class=&quot;volume&quot;&gt;1&lt;&#x2F;span&gt;    &lt;span class=&quot;pages&quot;&gt;468-471&lt;&#x2F;span&gt;    &lt;span class=&quot;year&quot;&gt;2009&lt;&#x2F;span&gt;    &lt;a class=&quot;search&quot; target=&quot;_blank&quot; href=&quot;http:&#x2F;&#x2F;scholar.google.com&#x2F;scholar?q=Contactless+micro+position+and+angular+sensor+device+based+on+micro+structured+polymer+magnets&quot;&gt;Search&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</content>
+</entry>
+</feed>

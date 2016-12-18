@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>Javascript based Picasa photo roll on your webpage
+</title>
+  <link>https://l4x.org/web/picasa_roll_javascript.html</link>
+  <description><![CDATA[
+<p>From the department of 5-minute Javascript hacks comes this
+little gem, which handles the 'Random photo' to the right.
+It uses the JSON-API Google API to get the data from the
+Picasa-Web-Albums.</p>
+<pre class="literal-block">
+&lt;script&gt;&lt;!-- //http://code.google.com/apis/gdata/docs/json.html
+// Creative Commons Attribution-ShareAlike 3.0 Unported License
+// http://creativecommons.org/licenses/by-sa/3.0/
+// (c) Jan Dittmer &lt;jdi&#64;l4x.org&gt; 2010
+var es = [];
+function r() {
+       var idx = Math.floor(Math.random()*es.length);
+       var m = es[idx]['media\$group'];
+       var i = document.getElementById(&quot;i&quot;);
+       document.getElementById(&quot;t&quot;).innerHTML = m['media\$description']['\$t'];
+       i.src = m['media\$thumbnail'][0]['url'];
+       setTimeout(&quot;r();&quot;,10*1000);
+}
+function j(p) {
+       es = p['feed']['entry'];
+       r();
+}
+function picasa() {
+       var url='http://picasaweb.google.com/data/feed/base/user/jan.dittmer' +
+               '?kind=photo&amp;thumbsize=160c&amp;access=public&amp;alt=json&amp;callback=j';
+       var s = document.createElement('script');
+       s.src = url; document.body.appendChild(s);
+}
+window.onload = picasa;
+//--&gt;&lt;/script&gt;
+&lt;a href=&quot;http://picasaweb.google.com/jan.dittmer&quot;&gt; &lt;img id=&quot;i&quot;&gt; &lt;/a&gt;
+&lt;div id=&quot;t&quot;&gt;&lt;/div&gt;
+</pre>
+<p></p>
+
+]]></description>
+</item>
+
+</channel>
+</rss>

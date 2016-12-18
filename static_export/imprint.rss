@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name="generator" content="pyblosxom/1.5.3" -->
+<!DOCTYPE rss PUBLIC "-//Netscape Communications//DTD RSS 0.91//EN" "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+
+<rss version="0.91">
+<channel>
+<title>l4x.org   </title>
+<link>https://l4x.org</link>
+<description>Home of Jan Dittmer</description>
+<language>en</language>
+<item>
+  <title>Imprint, for legal purposes</title>
+  <link>https://l4x.org/imprint.html</link>
+  <description><![CDATA[
+
+Jan Dittmer<br />
+Marlene-Dietrich-Str 53<br />
+80636 Muenchen<br />
+jdi@l4x.org<br />
++49 - 179 - 4570689<br />
+
+
+
+]]></description>
+</item>
+
+</channel>
+</rss>
