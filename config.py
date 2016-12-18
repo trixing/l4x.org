@@ -182,7 +182,7 @@ py["parser"] = "plain"
 # documentation.
 #
 # What directory do you want your static html pages to go into?
-py["static_dir"] = "/var/www/pybx/"
+py["static_dir"] = os.path.join(basedir, "static_export")
 
 # What flavours should get generated?
 py["static_flavours"] = ["html","rss","rss20","atom"]
