@@ -46,7 +46,7 @@ py["blog_email"] = "jdi@l4x.org"
 # on your blog.  Generally, this is the copyright information.
 # This is used in the Atom feeds.  Leaving this blank or not filling
 # it in correctly could result in a feed that doesn't validate.
-py["blog_rights"] = "Copyright 2008-2015 Jan Dittmer"
+py["blog_rights"] = "Copyright 2008-2016 Jan Dittmer"
 
 # What is this blog's primary language (for outgoing RSS feed)?
 py["blog_language"] = "en"

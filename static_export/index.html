@@ -56,96 +56,90 @@
 
 <p>  </p>
 
-<h2>Wed, 03 Dec 2014</h2>
-<h3><a name="startssl_haproxy">Installing a StartSSL certificate with haproxy
+<h2>Sun, 18 Dec 2016</h2>
+<h3><a name="prevsheet"> Reference the Previous Sheet in Google Spreadsheets
 </a></h3>
 <div class="blosxomStory">
-<p><a class="reference external" href="http://www.haproxy.org">haproxy</a>
-since version 1.5 supports native SSL.  It uses a
-combined PEM file for encrypting connections.</p>
-<p><a class="reference external" href="https://www.startssl.com">StartSSL</a> is
-a popular provider of free SSL certificates (which I happen to use), but only
-provides separate <tt class="docutils literal">ssl.crt</tt> and <tt class="docutils literal">ssl.key</tt> files.</p>
-<p>To install these with <em>haproxy</em> they need to be combined into a single PEM file.
-It is helpful to also present the intermediary certificates, which can
-be downloaded on the StartSSL website as well. Otherwise clients might not
-recognize the certificate as valid because they cannot verify the certificate
-chain.</p>
-<p>To combine them into one, <tt class="docutils literal">cat</tt> works just fine:</p>
-<blockquote>
-cat ssl.crt sub.class2.server.ca.pem ca.pem ssl.key &gt; ssl.pem</blockquote>
-<p>Install it in <em>haproxy</em> by adding a bind option to the
-<tt class="docutils literal">frontend</tt> block, e.g.</p>
-<blockquote>
-bind :443 ssl crt /etc/haproxy/ssl.pem
-bind :::443 ssl crt /etc/haproxy/ssl.pem</blockquote>
-<p>This is what I'm running on <a class="reference external" href="https://l4x.org">l4x.org</a>.</p>
-<p></p>
+<p>I'm maintaining this soccer stats sheet and have different games on different sheets.  To build up sums
+I like to reference data from the previous sheet.  It took me some trial and error to get going.  Essentially
+it requires a custom function and the use of INDIRECT.</p>
 
+<p>For the custom function go to Tools &gt; Script Editor and paste the following code</p>
+
+<pre><code class="javascript">/**
+ * Retrieves a reference to the previous sheet, or null
+ * input is unused.
+ */
+function prevSheet(input) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet();
+  var sheets = sheet.getSheets();
+  var prev = null;
+  for(var i = 0; i &lt; sheets.length; i++) {
+    if (sheets[i].getSheetId() == sheet.getSheetId()) {
+      return prev.getName();
+    }
+    prev = sheets[i];
+  }
+  return null;
+};
+</pre>
+
+<p>The code is also available <a href="https://script.google.com/macros/s/AKfycbyY4tY4f1u6WqJY2AXHzb4Mvqk1sahQadgwc5JPj0CdrwAlLKd8/exec">here</a> as an add-on.</p>
+
+<p>To use the function you need to use the INDIRECT function, for example to reference cell A2
+on the previous sheet:</p>
+
+<pre>=INDIRECT(&quot;'&quot; &amp; prevSheet(GoogleClock()) &amp; &quot;'!A2&quot;)
+</pre>
+
+<p>To be able to copy the formula around and keeping the references, use</p>
+
+<pre>=INDIRECT(&quot;'&quot; &amp; prevSheet(GoogleClock()) &amp; &quot;'!&quot; &amp; CHAR(64+COLUMN()) &amp; ROW()
+</pre>
+
+<p><a href="http://webapps.stackexchange.com/questions/16009/display-sheet-name-in-google-spreadsheet">This</a> was very helpful to get me started.</p>
 <p class="posted">
-  posted at 01:00 |
-  path: <a href="https://l4x.org/unix" title="path">/unix</a> |
-  <a href="https://l4x.org/unix/startssl_haproxy.html" title="Installing a StartSSL certificate with haproxy
+  posted at 03:23 |
+  path: <a href="https://l4x.org/web" title="path">/web</a> |
+  <a href="https://l4x.org/web/prevsheet.html" title=" Reference the Previous Sheet in Google Spreadsheets
 ">permanent link to this entry</a>
 </p>
 </div>
 
-<h2>Tue, 03 Jun 2014</h2>
-<h3><a name="gevent_and_pyblosxom">Running Pyblosxom with gevent.wsgi
+<h2>Fri, 27 Feb 2015</h2>
+<h3><a name="test">A test image
 </a></h3>
 <div class="blosxomStory">
-<p>The <a class="reference external" href="http://www.gevent.org/gevent.wsgi.html">gevent wsgi server</a>
-is very easy to use from Python.  I wrote
-a convenient wrapper which starts <a class="reference external" href="http://http://pyblosxom.github.io/">pyblosxom</a>
-under gevent.  This can be used to
-either serve your blog locally for testing or to serve the live
-system.  The nice thing is that it doesn't require an extra apache
-or nginx server just to start serving it.</p>
-<p>Full source code is located <a class="reference external" href="/python/pyblosxom_gevent.py">here</a>.</p>
-<p>The important piece:</p>
-<pre class="literal-block">
-from gevent import monkey; monkey.patch_all()
-from gevent.pool import Pool
-from gevent.pywsgi import WSGIServer
-from Pyblosxom import pyblosxom
-
-def start(host='127.0.0.1', port=8007, threads=8):
-  pool = Pool(threads)
-  application = pyblosxom.PyBlosxomWSGIApp()
-  server = WSGIServer((host, port), application, spawn=pool)
-  server.serve_forever()
-</pre>
-<p></p>
-
+<p><img alt="test image" src="/academia/horn1_cut.png?600x" title="Title for test image"></p>
 <p class="posted">
-  posted at 23:00 |
-  path: <a href="https://l4x.org/python" title="path">/python</a> |
-  <a href="https://l4x.org/python/gevent_and_pyblosxom.html" title="Running Pyblosxom with gevent.wsgi
+  posted at 00:38 |
+  path: <a href="https://l4x.org/" title="path">/</a> |
+  <a href="https://l4x.org/test.html" title="A test image
 ">permanent link to this entry</a>
 </p>
 </div>
 
-<h2>Sun, 16 Mar 2014</h2>
-<h3><a name="libvirt_attach_disk">Attaching a new disk to a running VM
+<h2>Tue, 24 Feb 2015</h2>
+<h3><a name="markdown"> A new blog entry in Markdown format
 </a></h3>
 <div class="blosxomStory">
-<p>Just for my own memory (attaching 400G to vm named <tt class="docutils literal">git0</tt>):</p>
-<pre class="literal-block">
-pool-define-as hdd --type dir --target /mnt/libvirt
-pool-start hdd
-pool-autostart hdd
-vol-create-as hdd gitdisk 400G
-attach-disk git0 /mnt/libvirt/gitdisk vdb --persistent --driver qemu --subdriver qcow2
-</pre>
-<p>The <tt class="docutils literal">driver</tt> and <tt class="docutils literal">subdriver</tt> options are essential.
-Otherwise the disk is attached as <tt class="docutils literal">raw</tt> disk and the guest
-will only see several kilobytes (kb) of disk not the full 400G.</p>
-<p></p>
+<p>I took the markdown plugin from <a href="https://raw.githubusercontent.com/seanh/PyBlosxom-Python-Markdown-2-Plugin/master/markdown-plugin.py">here</a> and fixed a few issues, most notably making it an entry parser, losely based on the rst.py
+plugin.</p>
 
+<p>This is awesome, because now I can use github to actually write blog
+entries in the browser - maybe, just maybe making the hurdle a bit less to
+write a few posts.</p>
+
+<p>The resulting code can be found in my new <a href="https://github.com/trixing/l4x.org">github</a> repository.</p>
+
+<p>And yes, I know, version 1.5 will bring this by default - but I am on
+Debian Wheezy which runs 1.4.</p>
+
+<p></p>
 <p class="posted">
-  posted at 23:00 |
-  path: <a href="https://l4x.org/vm" title="path">/vm</a> |
-  <a href="https://l4x.org/vm/libvirt_attach_disk.html" title="Attaching a new disk to a running VM
+  posted at 23:42 |
+  path: <a href="https://l4x.org/web" title="path">/web</a> |
+  <a href="https://l4x.org/web/markdown.html" title=" A new blog entry in Markdown format
 ">permanent link to this entry</a>
 </p>
 </div>
@@ -183,7 +177,9 @@ window.onload = picasa;
 
 <h2>Archives</h2>
 <div class="sidebarbox">
-	<li><a href="https://l4x.org/2014/Dec">Dec 2014</a></li>
+	<li><a href="https://l4x.org/2016/Dec">Dec 2016</a></li>
+<li><a href="https://l4x.org/2015/Feb">Feb 2015</a></li>
+<li><a href="https://l4x.org/2014/Dec">Dec 2014</a></li>
 <li><a href="https://l4x.org/2014/Jun">Jun 2014</a></li>
 <li><a href="https://l4x.org/2014/Mar">Mar 2014</a></li>
 <li><a href="https://l4x.org/2014/Feb">Feb 2014</a></li>

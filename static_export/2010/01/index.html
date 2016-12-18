@@ -57,6 +57,74 @@
 <p> 01 2010</p>
 
 <h2>Fri, 08 Jan 2010</h2>
+<h3><a name="svn-ci-date">How to back date a subversion checkin</a></h3>
+<div class="blosxomStory">
+
+While setting up a new subversion (svn) repository for my
+old blog entries, I wanted to keep the original dates (mtime of
+the file) in the checkin commit (for use with the pyblosxom
+svn plugin). After a quick online research I came up with the
+following script:
+
+<pre>
+#!/bin/sh
+# svn-ci-date.sh
+# Jan Dittmer &lt;jdi@l4x.org&gt; 2008
+# Use at your own risk
+#
+
+D=`ls -l "$1" | cut -f6-7 -d' ' | sed 's/ /T/'`
+D="${D}:00.000000Z"
+echo "Date: $D"
+if ! svn add "$1"; then exit 1; fi
+if ! svn ci -m "Date $D" "$1"; then exit 2; fi
+R=`svn info "$1" | grep "^Revision: " | cut -f2 -d' '`
+echo "Revision: $R"
+if [ "$R" == "" ]; then exit 3; fi
+if ! svn propset --revprop svn:date -r$R "$D"; then exit 4; fi
+</pre>
+
+Please note, that subversion does not do any sanity checking on the
+svn:date property. If svn log reports a 'Bogus Date' afterwards, make
+sure your dates have the format 'YYYY-MM-DDThh:mm:ss.uuuuuuZ'.
+
+
+
+<p class="posted">
+  posted at 12:14 |
+  path: <a href="https://l4x.org/unix" title="path">/unix</a> |
+  <a href="https://l4x.org/unix/svn-ci-date.html" title="How to back date a subversion checkin">permanent link to this entry</a>
+</p>
+</div>
+
+<h3><a name="lenovo_x300_fancontrol">Controlling the fan speed of a Lenovo X300 under Linux</a></h3>
+<div class="blosxomStory">
+
+The Lenovo X300 has a really annoying fan running with high speeds already at low (40C) CPU temperatures. The lm-sensors package comes with a fancontrol daemon which does user space fan regulation. Just put this in your /etc/fancontrol
+
+<pre>
+INTERVAL=10
+FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp1_input
+FCFANS= hwmon0/device/pwm1=hwmon0/device/fan1_input
+MINTEMP=hwmon0/device/pwm1=60
+MAXTEMP=hwmon0/device/pwm1=70
+MINSTART=hwmon0/device/pwm1=32
+MINSTOP=hwmon0/device/pwm1=32
+MINPWM=hwmon0/device/pwm1=32
+MAXPWM=hwmon0/device/pwm1=128
+</pre>
+
+This will give you 1800 rpm for CPU temperatures > 50C and 5500 rpm (the next level) for temperatures higher 70C. As the fan is barely noticeable at 1800 and 70C is only reached by running two processes with 100% CPU load for more then 5 minutes (even at 30C ambient temperature) this will give you a nearly totally silent laptop :-). A pwm value of 255 sounds like a jet starting (8000 rpm)...
+
+
+
+<p class="posted">
+  posted at 12:14 |
+  path: <a href="https://l4x.org/unix" title="path">/unix</a> |
+  <a href="https://l4x.org/unix/lenovo_x300_fancontrol.html" title="Controlling the fan speed of a Lenovo X300 under Linux">permanent link to this entry</a>
+</p>
+</div>
+
 <h3><a name="MP3_Compare">MP3_Compare</a></h3>
 <div class="blosxomStory">
 
@@ -230,74 +298,6 @@ A selection of really small quadrocopters (UAV, VTOL, Mikrocopter):
 </p>
 </div>
 
-<h3><a name="lenovo_x300_fancontrol">Controlling the fan speed of a Lenovo X300 under Linux</a></h3>
-<div class="blosxomStory">
-
-The Lenovo X300 has a really annoying fan running with high speeds already at low (40C) CPU temperatures. The lm-sensors package comes with a fancontrol daemon which does user space fan regulation. Just put this in your /etc/fancontrol
-
-<pre>
-INTERVAL=10
-FCTEMPS=hwmon0/device/pwm1=hwmon0/device/temp1_input
-FCFANS= hwmon0/device/pwm1=hwmon0/device/fan1_input
-MINTEMP=hwmon0/device/pwm1=60
-MAXTEMP=hwmon0/device/pwm1=70
-MINSTART=hwmon0/device/pwm1=32
-MINSTOP=hwmon0/device/pwm1=32
-MINPWM=hwmon0/device/pwm1=32
-MAXPWM=hwmon0/device/pwm1=128
-</pre>
-
-This will give you 1800 rpm for CPU temperatures > 50C and 5500 rpm (the next level) for temperatures higher 70C. As the fan is barely noticeable at 1800 and 70C is only reached by running two processes with 100% CPU load for more then 5 minutes (even at 30C ambient temperature) this will give you a nearly totally silent laptop :-). A pwm value of 255 sounds like a jet starting (8000 rpm)...
-
-
-
-<p class="posted">
-  posted at 12:14 |
-  path: <a href="https://l4x.org/unix" title="path">/unix</a> |
-  <a href="https://l4x.org/unix/lenovo_x300_fancontrol.html" title="Controlling the fan speed of a Lenovo X300 under Linux">permanent link to this entry</a>
-</p>
-</div>
-
-<h3><a name="svn-ci-date">How to back date a subversion checkin</a></h3>
-<div class="blosxomStory">
-
-While setting up a new subversion (svn) repository for my
-old blog entries, I wanted to keep the original dates (mtime of
-the file) in the checkin commit (for use with the pyblosxom
-svn plugin). After a quick online research I came up with the
-following script:
-
-<pre>
-#!/bin/sh
-# svn-ci-date.sh
-# Jan Dittmer &lt;jdi@l4x.org&gt; 2008
-# Use at your own risk
-#
-
-D=`ls -l "$1" | cut -f6-7 -d' ' | sed 's/ /T/'`
-D="${D}:00.000000Z"
-echo "Date: $D"
-if ! svn add "$1"; then exit 1; fi
-if ! svn ci -m "Date $D" "$1"; then exit 2; fi
-R=`svn info "$1" | grep "^Revision: " | cut -f2 -d' '`
-echo "Revision: $R"
-if [ "$R" == "" ]; then exit 3; fi
-if ! svn propset --revprop svn:date -r$R "$D"; then exit 4; fi
-</pre>
-
-Please note, that subversion does not do any sanity checking on the
-svn:date property. If svn log reports a 'Bogus Date' afterwards, make
-sure your dates have the format 'YYYY-MM-DDThh:mm:ss.uuuuuuZ'.
-
-
-
-<p class="posted">
-  posted at 12:14 |
-  path: <a href="https://l4x.org/unix" title="path">/unix</a> |
-  <a href="https://l4x.org/unix/svn-ci-date.html" title="How to back date a subversion checkin">permanent link to this entry</a>
-</p>
-</div>
-
 </div>
 
 
@@ -331,7 +331,9 @@ window.onload = picasa;
 
 <h2>Archives</h2>
 <div class="sidebarbox">
-	<li><a href="https://l4x.org/2014/Dec">Dec 2014</a></li>
+	<li><a href="https://l4x.org/2016/Dec">Dec 2016</a></li>
+<li><a href="https://l4x.org/2015/Feb">Feb 2015</a></li>
+<li><a href="https://l4x.org/2014/Dec">Dec 2014</a></li>
 <li><a href="https://l4x.org/2014/Jun">Jun 2014</a></li>
 <li><a href="https://l4x.org/2014/Mar">Mar 2014</a></li>
 <li><a href="https://l4x.org/2014/Feb">Feb 2014</a></li>
