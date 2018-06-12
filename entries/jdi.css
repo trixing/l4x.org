@@ -1,0 +1,279 @@
+/* $Id: common.css,v 1.8 2004/09/20 14:36:53 unconed Exp $ */
+
+/*
+** HTML elements
+*/
+a, a:link, a:active {
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+body {
+  margin: 0;
+  padding: 3em;
+  font-size: .8em;
+  line-height: 1.3em;
+}
+blockquote {
+  font-style: italic;
+}
+table {
+  margin: 0;
+  padding: .5em;
+  border-collapse: collapse;
+}
+code, pre {
+ font-size: 1.2em;
+}
+pre {
+ font-size: 1.0em;
+ padding: 1em;
+ background: #eee;
+}
+li {
+ padding-bottom: .3em;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .25em;
+}
+h1 {
+  font-size: 1.3em;
+}
+h2 {
+  font-size: 1.2em;
+}
+h3 {
+  font-size: 1.1em;
+}
+h4, h5, h6 {
+  font-size: 1em;
+}
+p {
+  margin: 0 0 .5em 0;
+}
+br {
+  line-height: 0.6em;
+}
+
+/*
+** Page layout blocks / IDs
+*/
+#header {
+  margin-bottom: 2em;
+  width: 700px;
+  text-align: center;
+}
+#help {
+  font-size: 0.8em;
+}
+#content {
+  clear: both;
+  margin-top: 1em;
+}
+#sidebar-left, #sidebar-right {
+  vertical-align: top;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+#main {
+  padding-left: 1em;
+  padding-right: 1em;
+  vertical-align: top;
+}
+#footer {
+ font-size: 0.8em;
+ margin-top: 2em;
+ text-align: center;
+ background-color: #8AA5B5;
+}
+
+/*
+** Common declarations for child classes of node, comment, block, box etc
+*/
+.title {
+  margin: 0 0 .25em 0;
+}
+.content {
+  margin: 0 0 .5em 0;
+}
+.links {
+  font-size: 0.8em;
+  line-height: 1.25em;
+}
+.block {
+  width: 180px;
+}
+.messages {
+  padding: 0.3em;
+  margin: 0.5em 0em 0.5em 0em;
+}
+.status {
+  border: 1px solid #3a3;
+  color: #3a3;
+}
+.error, form-item input.error {
+  border: 1px solid red;
+  color: red;
+}
+
+/*
+** Common navigation links added on the admin/themes/settings page
+*/
+.navlinks {
+  padding: 0em 0em 0.5em 1em;
+  clear: both;
+ /*background-color: #8AA5B5;*/
+ width: 500px;
+}
+.primary a {
+  font-size: 1.0em;
+  padding: 0em 0.5em 0em 0em;
+}
+.secondary a {
+  font-size: 0.9em;
+  padding: 0em 0.5em 0em 0em;
+}
+
+/*
+** Logo Image Positioning
+*/
+#header img {
+  float: left;
+  padding: 0em 2em .5em 0em;
+}
+#header {
+  clear: both;
+}
+/*
+** Module specific styles
+*/
+.form-item textarea {
+  font-size: 1em;
+}
+#aggregator .feed {
+  border: 1px solid gray;
+  padding: 1em;
+}
+/* $Id: style.css,v 1.2 2004/08/20 09:34:52 dries Exp $ */
+
+/*
+** HTML elements
+*/
+a, a:link, a:active {
+  color: #0000AA;
+}
+a:visited {
+  color: #0000AA;
+}
+body {
+  padding: 1em 0 0 1em;
+ /* background-image: url(background.png); */
+/*  background-image: url(/site/themes/chameleon/background.png); */
+  background-repeat: repeat-x;
+ /* font-family: trebuchet ms, tahoma, verdana, arial, helvetica; */
+  font-family: "Lucida Grande", Verdana, Arial, Sans-Serif;
+ /* font-size:1.00em; */
+
+  border-top: 0px solid gray;
+}
+ul {
+  list-style-type: disc;
+}
+
+/*
+** Page layout blocks / IDs
+*/
+#main {
+  width: 500px;
+}
+#sidebar-left {
+  border-right: 1px solid gray;
+}
+#sidebar-right {
+  border-left: 1px solid gray;
+}
+
+/*
+** Common declarations for child classes of node, comment, block, box etc
+*/
+#header img {
+  padding-left: 1em;
+}
+
+#header .title {
+  font-size: 2em;
+  font-weight: bold;
+  padding-top: .75em;
+}
+#header .title a,
+#header .title a:link,
+#header .title a:visited,
+#header .title a:active {
+  text-decoration: none;
+  color: #aaa;
+}
+#header .title a:hover {
+  color: #930;
+}
+#header .site-slogan {
+  margin-top: -0.1em;
+  font-size: 0.8em;
+}
+.node .title {
+  font-size: 1.2em;
+}
+.node .title a,
+.node .title a:link,
+.node .title a:active,
+.node .title a:visited {
+  text-decoration: none;
+  font-weight: bold;
+}
+.node .title a:hover {
+  text-decoration: underline;
+}
+.links {
+  margin: 1em 0 3em 0;
+  text-align: right;
+ }
+.comment .content, .block .content, .menu {
+  font-size: 0.9em;
+}
+.block {
+  padding-bottom: 1em;
+}
+.block .title {
+  font-size: 1em;
+}
+
+/*
+** Module specific styles
+*/
+.item-list ul li {
+  list-style: square;
+}
+#aggregator .source {
+  color: gray;
+  font-style: italic;
+  font-size: 0.9em;
+  clear:both;
+}
+
+h3.feedstart {
+	background-color: #aaaaaa;
+}
+
+div.search input {
+	vertical-align:middle;
+}
+
+#fortune {
+	font-style: italic;
+}
+/* site title */
+#main > h2 {
+	margin-bottom: 1em;
+
+}
