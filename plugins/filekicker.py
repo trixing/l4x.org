@@ -54,7 +54,7 @@ BLOCK_SIZE = 4096
 REDUCE_TO_TEXT_PLAIN = ['text/python', 'text/x-python', 'text/lisp',
                         'text/elisp', 'text/x-diff']
 
-EXTENSIONS = ('pdf', 'jpg', 'png', 'py', 'zip')
+EXTENSIONS = ('pdf', 'jpg', 'png', 'py', 'zip', 'gif', 'css', 'js', 'ico')
 
 def verify_installation(request):
   # no setup necessary
