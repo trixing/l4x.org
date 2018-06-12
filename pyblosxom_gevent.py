@@ -11,12 +11,14 @@ from gevent import monkey; monkey.patch_all()
 from gevent.pool import Pool
 from gevent.pywsgi import WSGIServer
 
+from config import py as cfg
+
 from Pyblosxom import pyblosxom
 
 
-def start(host='127.0.0.1', port=8007, threads=8):
+def start(host='0.0.0.0', port=8007, threads=8):
     pool = Pool(threads)
-    application = pyblosxom.PyBlosxomWSGIApp()
+    application = pyblosxom.PyblosxomWSGIApp()
     server = WSGIServer((host, port), application,
                         spawn=pool)#, log=None)
     server.serve_forever()
@@ -25,7 +27,7 @@ def start(host='127.0.0.1', port=8007, threads=8):
 def main():
   p = argparse.ArgumentParser(description='Pyblosxom')
   p.add_argument('--port', dest='port', type=int, default=8007)
-  p.add_argument('--host', dest='host', default='127.0.0.1')
+  p.add_argument('--host', dest='host', default='0.0.0.0')
   p.add_argument('--threads', dest='threads', type=int, default=8)
   args = p.parse_args()
   while True:
@@ -35,6 +37,7 @@ def main():
       break
     except Exception as e:
       print 'Exception', str(e)
+      break
 
 
 if __name__ == '__main__':

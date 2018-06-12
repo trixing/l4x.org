@@ -143,9 +143,18 @@ py["plugin_dirs"] = [basedir + "/plugins"]
 # If you specify an empty list, then this will load no plugins.
 # ex: py["load_plugins"] = ["pycalendar", "pyfortune", "pyarchives"]
 py["load_plugins"] = ["pycalendar","pystaticfile","pyarchives",
-		"filekicker","tags","pymetadate","rst","404","bib",
-        "markdown-plugin", "gallery"]
+		"filekicker","tags","pymetadate",
+        #"rst",
+        #"404",
+        "bib",
+        #"markdown-plugin",
+                      "gallery"]
 
+py['load_plugins'] += [
+    "Pyblosxom.plugins.pycalendar",
+    "Pyblosxom.plugins.markdown_parser",
+    "Pyblosxom.plugins.rst_parser",
+]
 
 
 # ======================

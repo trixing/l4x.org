@@ -1,9 +1,15 @@
 Imprint, for legal purposes
-
+<div>
 Jan Dittmer<br />
 Marlene-Dietrich-Str 53<br />
 80636 Muenchen<br />
-jdi@l4x.org<br />
+<a href="mailto:jdi@l4x.org">jdi@l4x.org</a><br />
 +49 - 179 - 4570689<br />
+</div>
 
+Some personal pages (no Facebook account)
+<ul>
+<li><a href="https://https://linkedin.com/in/jandittmer/">LinkedIn</a>
+<li><a href="https://plus.google.com/+JanDittmer">Google+</a>
+</ul>
 [[!meta date="2008-11-25 21:32:33"]]

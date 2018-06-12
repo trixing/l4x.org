@@ -16,7 +16,7 @@ from Pyblosxom import pyblosxom
 
 def start(host='127.0.0.1', port=8007, threads=8):
     pool = Pool(threads)
-    application = pyblosxom.PyBlosxomWSGIApp()
+    application = pyblosxom.PyblosxomWSGIApp()
     server = WSGIServer((host, port), application,
                         spawn=pool)#, log=None)
     server.serve_forever()
